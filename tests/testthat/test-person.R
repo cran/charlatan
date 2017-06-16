@@ -1,0 +1,67 @@
+context("PersonProvider")
+
+test_that("PersonProvider works", {
+  aa <- PersonProvider$new()
+
+  expect_equal(aa$locale, "en_US")
+  expect_is(aa, "R6")
+  expect_is(aa, "PersonProvider")
+
+  expect_is(aa$render, "function")
+
+  expect_is(aa$render(), "character")
+  expect_is(aa$render(), "character")
+  expect_is(aa$render(), "character")
+  expect_is(aa$render(), "character")
+
+  aa <- PersonProvider$new(locale = "fi_FI")
+  expect_equal(aa$locale, "fi_FI")
+})
+
+test_that("PersonProvider fails well", {
+  aa <- PersonProvider$new()
+  expect_error(aa$render(x = 5), "unused argument")
+
+  expect_error(
+    PersonProvider$new(locale = "foobar"),
+    "foobar not in set of available locales"
+  )
+})
+
+
+context("ch_name")
+
+test_that("ch_name works", {
+  aa <- ch_name()
+
+  expect_is(aa, "character")
+})
+
+test_that("ch_name - n parameter", {
+  expect_equal(length(ch_name(n = 10)), 10)
+  expect_equal(length(ch_name(n = 100)), 100)
+  expect_equal(length(ch_name(n = 500)), 500)
+})
+
+test_that("ch_name - locale parameter", {
+  expect_is(ch_company(locale = "fr_FR"), "character")
+  expect_is(ch_company(locale = "de_DE"), "character")
+  expect_is(ch_company(locale = "bg_BG"), "character")
+})
+
+test_that("ch_name fails well", {
+  expect_error(
+    ch_name(n = "xx"),
+    "n must be of class integer, numeric"
+  )
+
+  expect_error(
+    ch_name(locale = 5),
+    "5 not in set of available locales"
+  )
+
+  expect_error(
+    ch_name(messy = "adsf"),
+    "messy must be of class logical"
+  )
+})

@@ -1,0 +1,182 @@
+---
+title: "Introduction to the charlatan package"
+author: "Scott Chamberlain"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+vignette: >
+  %\VignetteIndexEntry{Introduction to the charlatan package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`charlatan` makes fake data, inspired from and borrowing some code from Python's [faker](https://github.com/joke2k/faker)
+
+Why would you want to make fake data? Here's some possible use cases to
+give you a sense for what you can do with this package:
+
+* Students in a classroom setting learning any task that needs a dataset.
+* People doing simulations/modeling that need some fake data
+* Generate fake dataset of users for a database before actual users exist
+* Complete missing spots in a dataset
+* Generate fake data to replace sensitive real data with before public release
+* Create a random set of colors for visualization
+* Generate random coordinates for a map
+* Get a set of randomly generated DOIs (Digial Object Identifiers) to
+assign to fake scholarly artifacts
+* Generate fake taxonomic names for a biological dataset
+* Get a set of fake sequences to use to test code/software that uses
+sequence data
+
+## Package API
+
+* Low level interfaces: All of these are `R6` objects that a user can
+initialize and then call methods on. These contain all the logic that
+the below interfaces use.
+* High level interfaces: There are high level functions prefixed with
+`ch_*()` that wrap low level interfaces, and are meant to be easier
+to use and provide an easy way to make many instances of a thing.
+* `ch_generate()` - generate a data.frame with fake data, choosing which columns to include from the data types provided in `charlatan`
+* `fraudster()` - single interface to all fake data methods, - returns
+vectors/lists of data - this function wraps the `ch_*()` functions described above
+
+## Install
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("charlatan")
+```
+
+Development version from Github
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/charlatan")
+```
+
+```{r}
+library("charlatan")
+```
+
+## high level function
+
+... for all fake data operations
+
+```{r}
+x <- fraudster()
+x$job()
+x$name()
+x$job()
+x$color_name()
+```
+
+## locale support
+
+Adding more locales through time, e.g.,
+
+Locale support for job data
+
+```{r}
+ch_job(locale = "en_US", n = 3)
+ch_job(locale = "fr_FR", n = 3)
+ch_job(locale = "hr_HR", n = 3)
+ch_job(locale = "uk_UA", n = 3)
+ch_job(locale = "zh_TW", n = 3)
+```
+
+For colors:
+
+```{r}
+ch_color_name(locale = "en_US", n = 3)
+ch_color_name(locale = "uk_UA", n = 3)
+```
+
+More coming soon ...
+
+## generate a dataset
+
+```{r}
+ch_generate()
+```
+
+```{r}
+ch_generate('job', 'phone_number', n = 30)
+```
+
+## Data types
+
+### person name
+
+```{r}
+ch_name()
+```
+
+```{r}
+ch_name(10)
+```
+
+
+### phone number
+
+```{r}
+ch_phone_number()
+```
+
+```{r}
+ch_phone_number(10)
+```
+
+### job
+
+```{r}
+ch_job()
+```
+
+```{r}
+ch_job(10)
+```
+
+### credit cards
+
+```{r}
+ch_credit_card_provider()
+ch_credit_card_provider(n = 4)
+```
+
+```{r}
+ch_credit_card_number()
+ch_credit_card_number(n = 10)
+```
+
+```{r}
+ch_credit_card_security_code()
+ch_credit_card_security_code(10)
+```
+
+
+## Messy data
+
+Real data is messy, right?  `charlatan` makes it easy to create
+messy data. This is still in the early stages so is not available
+across most data types and languages, but we're working on it.
+
+For example, create messy names:
+
+```{r}
+ch_name(50, messy = TRUE)
+```
+
+Right now only suffixes and prefixes for names in `en_US` locale
+are supported. Notice above some variation in prefixes and suffixes.
