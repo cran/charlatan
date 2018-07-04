@@ -9,31 +9,23 @@
 \usage{
 color_provider_locales
 }
+\arguments{
+\item{locale}{(character) the locale to use. Run
+\code{color_provider_locales()} for locales supported (default: en_US)}
+}
 \description{
 ColorProvider
 }
 \details{
 \strong{Methods}
-  \describe{
-   \item{\code{color_name}}{
-     color name
-   }
-   \item{\code{safe_color_name}}{
-     safe color name
-   }
-   \item{\code{hex_color}}{
-     hex color
-   }
-   \item{\code{safe_hex_color}}{
-     safe hex color
-   }
-   \item{\code{rgb_color}}{
-     RGB color
-   }
-   \item{\code{rgb_css_color}}{
-     RGB CSS color
-   }
- }
+\itemize{
+\item \code{color_name()} - color name
+\item \code{safe_color_name()} - safe color name
+\item \code{hex_color()} - hex color
+\item \code{safe_hex_color()} - safe hex color
+\item \code{rgb_color()} - RGB color
+\item \code{rgb_css_color()} - RGB CSS color
+}
 }
 \examples{
 x <- ColorProvider$new()
@@ -48,6 +40,7 @@ x$rgb_css_color()
 x <- ColorProvider$new(locale = "uk_UA")
 x$locale
 x$color_name()
+x$safe_color_name()
 }
 \keyword{datasets}
 \keyword{internal}

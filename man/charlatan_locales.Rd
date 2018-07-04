@@ -3,9 +3,21 @@
 \name{charlatan_locales}
 \alias{charlatan_locales}
 \title{Available locales}
+\usage{
+charlatan_locales()
+}
+\value{
+a data.frame of the available locales in this package.
+See \link{available_locales_df} for structure.
+
+Not all functions support all locales. Check the docs for each one
+to see what locales they support.
+
+You can find out more about each locale by running your locale
+though \code{stringi::stri_locale_info()}
+}
 \description{
-Vector of available locales - not all are available across all
-types of data.
+Available locales
 }
 \examples{
 charlatan_locales()

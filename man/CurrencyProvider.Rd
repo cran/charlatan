@@ -9,11 +9,9 @@ CurrencyProvider
 }
 \details{
 \strong{Methods}
-  \describe{
-    \item{\code{render()}}{
-      a currency, character string length 3
-    }
-  }
+\itemize{
+\item \code{render()} - a currency, character string length 3
+}
 }
 \examples{
 z <- CurrencyProvider$new()

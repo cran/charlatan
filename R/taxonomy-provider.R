@@ -180,29 +180,21 @@ tax_epithets <- c('abbeokutae','ackermani','adolphii','adunca','aegilicum',
 #' @export
 #' @keywords internal
 #' @details
-#' \strong{Methods}
-#'   \describe{
-#'     \item{\code{genus()}}{
-#'       Get a genus name
-#'     }
-#'     \item{\code{epithet()}}{
-#'       Get an epithet name
-#'     }
-#'     \item{\code{species()}}{
-#'       Get a binomial name (genus + epithet)
-#'       \itemize{
-#'        \item authority: Include authority. default: \code{FALSE}
-#'        \item date: Include authority date. If \code{authority = FALSE},
-#'        this is ignored.  default: \code{FALSE}
-#'       }
-#'     }
-#'   }
+#' **Methods**
+#' 
+#' - `genus()` - Get a genus name
+#' - `epithet()` - Get an epithet name
+#' - `species(authority, date)` - Get a binomial name (genus + epithet)
+#'       - authority: Include authority. default: `FALSE`
+#'       - date: Include authority date. If `authority = FALSE`,
+#'        this is ignored. default: `FALSE`
+#' 
 #' @format NULL
 #' @usage NULL
 #' @section Names:
 #' Names were taken from Theplantlist. 500 genera names and 500
 #' epithets were chosen at random from the set of 10,000 names in the
-#' dataset in the \code{taxize} package. Theplantlist is, as it says on the
+#' dataset in the `taxize` package. Theplantlist is, as it says on the
 #' tin, composed of plant names - so these fake names are derived from
 #' plant names if that matters to you. These may generate names that match
 #' those of real taxa, but may not as well.

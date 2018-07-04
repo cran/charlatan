@@ -6,42 +6,28 @@
 #' @export
 #' @keywords internal
 #' @details
-#' \strong{Methods}
-#'   \describe{
-#'    \item{\code{random_element(x)}}{
-#'      pick a random element from any input vector or list
-#'    }
-#'    \item{\code{random_int(min = 0, max = 9999, size = 1)}}{
-#'      random integer
-#'    }
-#'    \item{\code{random_digit()}}{
-#'      random integer between 0 and 9
-#'    }
-#'    \item{\code{random_digit_not_zero()}}{
-#'      random integer between 1 and 9
-#'    }
-#'    \item{\code{random_digit_or_empty()}}{
-#'      random integer between 0 and 9 or empty character string
-#'    }
-#'    \item{\code{random_digit_not_zero_or_empty()}}{
-#'      random integer between 1 and 9 or empty character string
-#'    }
-#'    \item{\code{random_letter()}}{
-#'      random letter
-#'    }
-#'    \item{\code{numerify(text = '###')}}{
-#'      replace a template with numbers
-#'    }
-#'    \item{\code{lexify(text = '????')}}{
-#'      replace a template with letters
-#'    }
-#'    \item{\code{bothify(text = '## ??')}}{
-#'      both numerify and lexify together
-#'    }
-#'    \item{\code{check_locale(x)}}{
-#'      check a locale to see if it exists, if not, stop with error message
-#'    }
-#'  }
+#' **Methods**
+#'
+#' - `random_element(x)` - pick a random element from any input vector or list
+#' - `random_int(min = 0, max = 9999, size = 1)` - random integer
+#' - `random_digit()` - random integer between 0 and 9
+#' - `random_digit_not_zero()` - random integer between 1 and 9
+#' - `random_digit_or_empty()` - random integer between 0 and 9 or empty
+#'    character string
+#' - `random_digit_not_zero_or_empty()` - random integer between 1 and 9 or empty
+#'    character string
+#' - `random_letter()` - random letter
+#' - `numerify(text = '###')` - replace a template with numbers
+#' - `lexify(text = '????')` - replace a template with letters
+#' - `bothify(text = '## ??')` - both numerify and lexify together
+#' - `check_locale(x)` - check a locale to see if it exists, if not, stop with
+#'    error message
+#' - `randomize_nb_elements(x)` - Returns a random value near number.
+#'      - param number: value to which the result must be near
+#'      - param le: result must be lower or equal to number
+#'      - param ge: result must be greater or equal to number
+#'      - returns: a random int near number
+#'
 #' @format NULL
 #' @usage NULL
 #' @examples
@@ -64,11 +50,23 @@
 #' x$check_locale("es_ES")
 #' ## fails
 #' # x$check_locale("es_EQ")
+#'
+#' x$randomize_nb_elements()
 BaseProvider <- R6::R6Class(
   'BaseProvider',
   public = list(
     random_element = function(x) {
+      if (length(x) == 0) return('')
+      if (inherits(x, "character")) if (!any(nzchar(x))) return('')
       x[sample.int(n = length(x), size = 1)]
+    },
+
+    random_element_prob = function(x) {
+      if (length(x) == 0) return('')
+      if (inherits(x, "character")) if (!any(nzchar(x))) return('')
+      choices <- names(x)
+      probs <- unname(unlist(x))
+      sample(choices, size = 1, prob = probs)
     },
 
     random_int = function(min = 0, max = 9999, size = 1) {
@@ -121,6 +119,18 @@ BaseProvider <- R6::R6Class(
     prov_avail_locales = function(x) {
       tmp <- getNamespaceExports("charlatan")
       gsub(x, "", tmp[tmp %in% paste(x, tolower(available_locales), sep = "")])
+    },
+
+    randomize_nb_elements = function(number = 10, le = FALSE, ge = FALSE,
+      min = NULL, max = NULL) {
+
+      if (le && ge) return(number)
+      '_min' = if (ge) 100 else 60
+      '_max' = if (le) 100 else 140
+      nb = as.integer(number * self$random_int(`_min`, `_max`) / 100)
+      if (!is.null(min) && nb < min) nb = min
+      if (!is.null(max) && nb > min) nb = max
+      return(nb)
     }
   )
 )

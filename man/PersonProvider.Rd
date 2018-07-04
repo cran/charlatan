@@ -5,14 +5,13 @@
 \alias{PersonProvider}
 \alias{person_provider_locales}
 \title{PersonProvider}
-\format{An object of class \code{character} of length 12.}
+\format{An object of class \code{character} of length 22.}
 \usage{
 person_provider_locales
 }
 \arguments{
-\item{locale}{(character) the locale to use. options: en_US (default),
-fr_FR, fr_CH, fi_FI, fa_IR, es_ES, es_MX, de_DE, de_AT, cs_CZ, bg_BG,
-dk_DK}
+\item{locale}{(character) the locale to use. Run
+\code{person_provider_locales()} for locales supported (default: en_US)}
 
 \item{messy}{(logical) make some messy data. Default: \code{FALSE}}
 }
@@ -21,23 +20,85 @@ PersonProvider
 }
 \details{
 \strong{Methods}
-  \describe{
-    \item{\code{render()}}{
-      Make a person's name
-    }
-  }
+\itemize{
+\item \code{render(fmt)} - Make a person's name
+\item \code{first_name()} -  get a first name
+\item \code{first_name_female()} - get a female first name
+\item \code{first_name_male()} - get a male first namne
+\item \code{last_name()} - get a last name
+\item \code{last_name_female()} - get a female last name
+\item \code{last_name_male()} - get a male last name
+\item \code{prefix()} - get a name prefix
+\item \code{prefix_female()} - get a female name prefix
+\item \code{prefix_male()} - get a male name prefix
+\item \code{suffix()} - get a name suffix
+\item \code{suffix_female()} - get a female name suffix
+\item \code{suffix_male()} - get a male name suffix
+}
+
+Note that with the male/female versions if the locale
+doesn't provide a male/female version then we fall back to the
+generic thing, e.g., if no female first name we give you first
+name
 }
 \examples{
 x <- PersonProvider$new()
+x$locale
 x$render()
+x$first_name()
+x$first_name_female()
+x$first_name_male()
+x$last_name()
+x$last_name_female()
+x$last_name_male()
+
+x <- PersonProvider$new(locale = "en_GB")
+x$locale
+x$render()
+x$first_name()
+x$first_name_female()
+x$first_name_male()
+x$last_name()
+x$last_name_female()
+x$last_name_male()
 
 z <- PersonProvider$new(locale = "fr_FR")
 z$locale
 z$render()
+z$first_name()
+z$first_name_female()
+z$first_name_male()
+z$last_name()
+z$last_name_female()
+z$last_name_male()
+z$prefix()
+
+z <- PersonProvider$new(locale = "de_AT")
+z$locale
+z$render()
+z$first_name()
+z$last_name()
+z$prefix()
+
+z <- PersonProvider$new(locale = "cs_CZ")
+z$locale
+z$render()
+z$first_name()
+z$first_name_female()
+z$first_name_male()
+z$last_name()
+z$last_name_female()
+z$last_name_male()
+z$prefix()
 
 z <- PersonProvider$new(locale = "es_MX")
 z$locale
 z$render()
+z$first_name()
+z$first_name_female()
+z$first_name_male()
+z$last_name()
+z$prefix()
 
 PersonProvider$new(locale = "fr_CH")$render()
 PersonProvider$new(locale = "fi_FI")$render()

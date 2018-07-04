@@ -9,11 +9,9 @@ DOIProvider
 }
 \details{
 \strong{Methods}
-  \describe{
-    \item{\code{render()}}{
-      Make a DOI
-    }
-  }
+\itemize{
+\item \code{render()} - Make a DOI
+}
 }
 \examples{
 (z <- DOIProvider$new())

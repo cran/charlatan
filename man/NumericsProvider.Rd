@@ -4,46 +4,50 @@
 \name{NumericsProvider}
 \alias{NumericsProvider}
 \title{NumericsProvider}
-\arguments{
-\item{n}{number of values}
-
-\item{mean}{mean value}
-
-\item{sd}{standard deviation}
-
-\item{min}{minimum value}
-
-\item{max}{maximum value}
-
-\item{shape1, shape2}{non-negative parameters of the Beta distribution}
-
-\item{ncp}{non-centrality parameter}
-}
 \description{
 NumericsProvider
 }
 \details{
 \strong{Methods}
-  \describe{
-    \item{\code{double()}}{
-      get a double, pulls from normal distribution
-    }
-    \item{\code{integer()}}{
-      get an integer, runs \code{\link{sample}} on range given
-    }
-    \item{\code{unif()}}{
-      get numbers from the uniform distribution
-    }
-    \item{\code{norm()}}{
-      get numbers from the normal distribution
-    }
-    \item{\code{lnorm()}}{
-      get numbers from the lognormal distribution
-    }
-    \item{\code{beta()}}{
-      get numbers from the beta distribution
-    }
-  }
+\itemize{
+\item \code{double(n, mean, sd)} - get a double, pulls from normal distribution
+\itemize{
+\item n: number of values, default: 1
+\item mean: mean value, default: 0
+\item sd: standard deviation, default: 1
+}
+\item \code{integer(n, min, max)} - get an integer, runs \code{\link[=sample]{sample()}} on range given
+\itemize{
+\item n: number of values, default: 1
+\item min: minimum value, default: 1
+\item max: maximum value, default: 1000
+}
+\item \code{unif(n, min, max)} - get numbers from the uniform distribution
+\itemize{
+\item n: number of values, default: 1
+\item min: minimum value, default: 0
+\item max: maximum value, default: 9999
+}
+\item \code{norm(n, mean, sd)} - get numbers from the normal distribution
+\itemize{
+\item n: number of values, default: 1
+\item mean: mean value, default: 0
+\item sd: standard deviation, default: 1
+}
+\item \code{lnorm(n, mean, sd)} - get numbers from the lognormal distribution
+\itemize{
+\item n: number of values, default: 1
+\item mean: mean value, default: 0
+\item sd: standard deviation, default: 1
+}
+\item \code{beta(n, shape1, shape2, ncp)} - get numbers from the beta distribution
+\itemize{
+\item n: number of values, default: 1
+\item shape1: non-negative parameters of the Beta distribution
+\item shape2: non-negative parameters of the Beta distribution
+\item ncp: non-centrality parameter, default: 0
+}
+}
 }
 \examples{
 z <- NumericsProvider$new()

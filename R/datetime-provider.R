@@ -490,33 +490,19 @@ dt_countries <- list(
 #' @include base-provider.R
 #' @keywords internal
 #' @details
-#' \strong{Methods}
-#'   \describe{
-#'    \item{\code{unix_time}}{
-#'      generate a unix time
-#'    }
-#'    \item{\code{date}}{
-#'      generate a date
-#'    }
-#'    \item{\code{date_time}}{
-#'      generate a date time
-#'    }
-#'    \item{\code{date_time_ad}}{
-#'      generate a date time
-#'    }
-#'    \item{\code{iso8601}}{
-#'      generate a iso8601 format date
-#'    }
-#'    \item{\code{year}}{
-#'      generate a year
-#'    }
-#'    \item{\code{century}}{
-#'      generate a century
-#'    }
-#'    \item{\code{timezone}}{
-#'      generate a timezone
-#'    }
-#'  }
+#' **Methods**
+#'
+#' - `unix_time()` - generate a unix time
+#' - `date(pattern)` - generate a date
+#' - `date_time(tzinfo)` - generate a date time
+#' - `date_time_ad(tzinfo)` - generate a date time
+#' - `iso8601()` - generate a iso8601 format date - NOT WORKING YET
+#' - `year()` - generate a year
+#' - `century()` - generate a century
+#' - `timezone()` - generate a timezone
+#' - `date_time_between(start_date, end_date, tzinfo)` - generate a
+#'    datetime between two dates
+#'
 #' @format NULL
 #' @usage NULL
 #' @examples
@@ -526,8 +512,16 @@ dt_countries <- list(
 #' z$century()
 #' z$timezone()
 #' z$unix_time()
+#' z$date("%Y-%M-%d")
 #' z$date_time()
 #' z$year()
+#'
+#' # date time between a range of dates
+#' (start_date <- Sys.time() - 604800L)
+#' z$date_time_between(start_date = start_date)
+#' # in the year 1900
+#' z$date_time_between("1900-01-01 00:00:00 PST", "1900-12-31 00:00:00 PST")
+#' z$date_time_between("1900-01-01", "1900-12-31")
 DateTimeProvider <- R6::R6Class(
   inherit = BaseProvider,
   'DateTimeProvider',
@@ -557,6 +551,10 @@ DateTimeProvider <- R6::R6Class(
       as.POSIXct(self$unix_time(), origin = "1970-01-01", tz = tzinfo)
     },
 
+    date_time_fromtimestamp = function(timestamp, tzinfo = NULL) {
+      as.POSIXct(timestamp, origin = "1970-01-01", tz = tzinfo)
+    },
+
     # FIXME - not working
     # iso8601 = function(tzinfo = NULL) {
     #   self$date_time(tzinfo)$isoformat()
@@ -572,6 +570,28 @@ DateTimeProvider <- R6::R6Class(
 
     timezone = function() {
       super$random_element(self$countries)
+    },
+
+    date_time_between = function(start_date, end_date = 'now', tzinfo = NULL) {
+      # Get a DateTime object based on a random date between two given dates.
+      # Accepts date strings that can be recognized by strtotime().
+
+      # :param start_date Defaults to 30 years ago
+      # :param end_date Defaults to "now"
+      # :param tzinfo: timezone, instance of datetime.tzinfo subclass
+      # :example date_time_between('1999-02-02 11:42:52 EST')
+      # :return unix timestamp
+      start_ts = private$date2timestamp(start_date)
+      end_ts = private$date2timestamp(end_date)
+      timestamp = super$random_int(start_ts, end_ts)
+      return(self$date_time_fromtimestamp(timestamp, tzinfo))
+    }
+  ),
+
+  private = list(
+    date2timestamp = function(date) {
+      if (as.character(date) == "now") date <- Sys.time()
+      as.numeric(as.POSIXct(date))
     }
   )
 )

@@ -7,9 +7,7 @@ pluck <- function(x, name, type) {
 }
 
 pluck_names <- function(x, y) {
-  #strxt(x, "[[:alpha:]]+")
   strtrim(strxt(x, paste0(names(y), collapse = "|"))[[1]])
-  #"first_names_male|first_names_female|first_names|last_names|prefixes_female|prefixes_male|suffixes_female|suffixes_male")
 }
 
 strxt <- function(string, pattern) {
@@ -20,7 +18,7 @@ strtrim <- function(str) gsub("^\\s+|\\s+$", "", str)
 
 assert <- function(x, y) {
   if (!is.null(x)) {
-    if (!class(x) %in% y) {
+    if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",
            paste0(y, collapse = ", "), call. = FALSE)
     }
@@ -42,4 +40,17 @@ parse_eval <- function(x, y, messy = FALSE) {
 
 rep_licate <- function(n, expr, type) {
   vapply(integer(n), eval.parent(substitute(function(...) expr)), type)
+}
+
+# test if an input has probabilities associated with character strings
+has_probs <- function(x) {
+  is.list(x) && is.numeric(x[[1]])
+}
+
+check4pkg <- function(x) {
+  if (!requireNamespace(x, quietly = TRUE)) {
+    stop("Please install ", x, call. = FALSE)
+  } else {
+    invisible(TRUE)
+  }
 }

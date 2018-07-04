@@ -12,14 +12,12 @@ SequenceProvider
 }
 \details{
 \strong{Methods}
-  \describe{
-    \item{\code{render()}}{
-      Make a sequence
-      \itemize{
-       \item length: sequence length. default: 30
-      }
-    }
-  }
+\itemize{
+\item \code{render(length)} - Make a sequence
+\itemize{
+\item length: sequence length. default: 30
+}
+}
 }
 \examples{
 z <- SequenceProvider$new()

@@ -2,15 +2,13 @@
 #'
 #' @export
 #' @keywords internal
-#' @param locale (character) the locale to use. options: en_US (default),
-#' fr_FR, fr_CH, hr_FR, fa_IR, pl_PL, ru_RU, uk_UA, zh_TW.
+#' @param locale (character) the locale to use. Run 
+#' `job_provider_locales()` for locales supported (default: en_US)
 #' @details
-#' \strong{Methods}
-#'   \describe{
-#'     \item{\code{render()}}{
-#'       Make a job
-#'     }
-#'   }
+#' **Methods**
+#' 
+#' - `render()` - Make a job
+#' 
 #' @format NULL
 #' @usage NULL
 #' @examples
@@ -58,5 +56,5 @@ JobProvider <- R6::R6Class(
 #' @rdname JobProvider
 job_provider_locales <- c(
   "fa_ir", "fr_ch", "uk_ua", "ru_ru", "pl_pl",
-  "en_us", "fr_fr", "hr_hr", "zh_tw"
+  "en_us", "fr_fr", "hr_hr", "zh_tw", "fi_fi"
 )

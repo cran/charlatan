@@ -1,37 +1,22 @@
-safe_colors = c(
-  'black', 'maroon', 'green', 'navy', 'olive',
-  'purple', 'teal', 'lime', 'blue', 'silver',
-  'gray', 'yellow', 'fuchsia', 'aqua', 'white'
-)
-
 #' ColorProvider
 #'
 #' @export
 #' @keywords internal
+#' @param locale (character) the locale to use. Run
+#' `color_provider_locales()` for locales supported (default: en_US)
 #' @details
-#' \strong{Methods}
-#'   \describe{
-#'    \item{\code{color_name}}{
-#'      color name
-#'    }
-#'    \item{\code{safe_color_name}}{
-#'      safe color name
-#'    }
-#'    \item{\code{hex_color}}{
-#'      hex color
-#'    }
-#'    \item{\code{safe_hex_color}}{
-#'      safe hex color
-#'    }
-#'    \item{\code{rgb_color}}{
-#'      RGB color
-#'    }
-#'    \item{\code{rgb_css_color}}{
-#'      RGB CSS color
-#'    }
-#'  }
+#' **Methods**
+#'
+#' - `color_name()` - color name
+#' - `safe_color_name()` - safe color name
+#' - `hex_color()` - hex color
+#' - `safe_hex_color()` - safe hex color
+#' - `rgb_color()` - RGB color
+#' - `rgb_css_color()` - RGB CSS color
+#'
 #' @format NULL
 #' @usage NULL
+#'
 #' @examples
 #' x <- ColorProvider$new()
 #' x$locale
@@ -45,13 +30,14 @@ safe_colors = c(
 #' x <- ColorProvider$new(locale = "uk_UA")
 #' x$locale
 #' x$color_name()
+#' x$safe_color_name()
 ColorProvider <- R6::R6Class(
   inherit = BaseProvider,
   'ColorProvider',
   public = list(
     locale = NULL,
     all_colors = NULL,
-    safe_colors = safe_colors,
+    safe_colors = NULL,
 
     initialize = function(locale = NULL) {
       if (!is.null(locale)) {
@@ -64,6 +50,7 @@ ColorProvider <- R6::R6Class(
         self$locale <- 'en_US'
       }
       self$all_colors <- parse_eval("all_colors_", self$locale)
+      self$safe_colors <- parse_eval("safe_colors_", self$locale)
     },
 
     color_name = function() {
@@ -80,8 +67,12 @@ ColorProvider <- R6::R6Class(
     },
 
     safe_hex_color = function() {
-      x <- sprintf("%x", super$random_int(0, 255))
-      x <- if (nchar(x) < 3) paste0(x, rep("0", 3 - nchar(x))) else x
+      x <- sprintf(
+        "%x%x%x",
+        super$random_int(0, 5) * 3,
+        super$random_int(0, 5) * 3,
+        super$random_int(0, 5) * 3
+      )
       paste0(
         "#",
         private$ind(x, 1), private$ind(x, 1),

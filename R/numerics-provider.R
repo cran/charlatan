@@ -2,35 +2,40 @@
 #'
 #' @export
 #' @keywords internal
-#' @param n number of values
-#' @param mean mean value
-#' @param sd standard deviation
-#' @param min minimum value
-#' @param max maximum value
-#' @param shape1,shape2 non-negative parameters of the Beta distribution
-#' @param ncp non-centrality parameter
 #' @details
-#' \strong{Methods}
-#'   \describe{
-#'     \item{\code{double()}}{
-#'       get a double, pulls from normal distribution
-#'     }
-#'     \item{\code{integer()}}{
-#'       get an integer, runs \code{\link{sample}} on range given
-#'     }
-#'     \item{\code{unif()}}{
-#'       get numbers from the uniform distribution
-#'     }
-#'     \item{\code{norm()}}{
-#'       get numbers from the normal distribution
-#'     }
-#'     \item{\code{lnorm()}}{
-#'       get numbers from the lognormal distribution
-#'     }
-#'     \item{\code{beta()}}{
-#'       get numbers from the beta distribution
-#'     }
-#'   }
+#' **Methods**
+#' 
+#' - `double(n, mean, sd)` - get a double, pulls from normal distribution
+#'    - n: number of values, default: 1
+#'    - mean: mean value, default: 0
+#'    - sd: standard deviation, default: 1
+#' 
+#' - `integer(n, min, max)` - get an integer, runs [sample()] on range given
+#'    - n: number of values, default: 1
+#'    - min: minimum value, default: 1
+#'    - max: maximum value, default: 1000
+#' 
+#' - `unif(n, min, max)` - get numbers from the uniform distribution
+#'    - n: number of values, default: 1
+#'    - min: minimum value, default: 0
+#'    - max: maximum value, default: 9999
+#' 
+#' - `norm(n, mean, sd)` - get numbers from the normal distribution
+#'    - n: number of values, default: 1
+#'    - mean: mean value, default: 0
+#'    - sd: standard deviation, default: 1
+#' 
+#' - `lnorm(n, mean, sd)` - get numbers from the lognormal distribution
+#'    - n: number of values, default: 1
+#'    - mean: mean value, default: 0
+#'    - sd: standard deviation, default: 1
+#' 
+#' - `beta(n, shape1, shape2, ncp)` - get numbers from the beta distribution
+#'    - n: number of values, default: 1
+#'    - shape1: non-negative parameters of the Beta distribution
+#'    - shape2: non-negative parameters of the Beta distribution
+#'    - ncp: non-centrality parameter, default: 0
+#' 
 #' @format NULL
 #' @usage NULL
 #' @examples
