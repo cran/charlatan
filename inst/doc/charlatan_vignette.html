@@ -11,7 +11,7 @@
 
 <meta name="author" content="Scott Chamberlain" />
 
-<meta name="date" content="2018-07-03" />
+<meta name="date" content="2018-07-05" />
 
 <title>Introduction to the charlatan package</title>
 
@@ -1487,7 +1487,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Introduction to the charlatan package</h1>
 <h4 class="author"><em>Scott Chamberlain</em></h4>
-<h4 class="date"><em>2018-07-03</em></h4>
+<h4 class="date"><em>2018-07-05</em></h4>
 
 </div>
 
@@ -1528,68 +1528,68 @@ div.tocify {
 <p>… for all fake data operations</p>
 <pre class="r"><code>x &lt;- fraudster()
 x$job()
-#&gt; [1] &quot;Pilot, airline&quot;
+#&gt; [1] &quot;Astronomer&quot;
 x$name()
-#&gt; [1] &quot;Kit Olson&quot;
+#&gt; [1] &quot;Veronica Spencer&quot;
 x$job()
-#&gt; [1] &quot;Civil Service fast streamer&quot;
+#&gt; [1] &quot;Marine scientist&quot;
 x$color_name()
-#&gt; [1] &quot;PaleGoldenRod&quot;</code></pre>
+#&gt; [1] &quot;Orchid&quot;</code></pre>
 </div>
 <div id="locale-support" class="section level2">
 <h2>locale support</h2>
 <p>Adding more locales through time, e.g.,</p>
 <p>Locale support for job data</p>
 <pre class="r"><code>ch_job(locale = &quot;en_US&quot;, n = 3)
-#&gt; [1] &quot;Community arts worker&quot; &quot;Exercise physiologist&quot; &quot;Bookseller&quot;
+#&gt; [1] &quot;Social researcher&quot; &quot;Oncologist&quot;        &quot;Sports therapist&quot;
 ch_job(locale = &quot;fr_FR&quot;, n = 3)
-#&gt; [1] &quot;Auxiliaire de vie sociale&quot;   &quot;Chef monteur&quot;               
-#&gt; [3] &quot;Biologiste en environnement&quot;
+#&gt; [1] &quot;Chargé des relations publiques&quot;                   
+#&gt; [2] &quot;Commissaire de police&quot;                            
+#&gt; [3] &quot;Technicien de l'intervention sociale et familiale&quot;
 ch_job(locale = &quot;hr_HR&quot;, n = 3)
-#&gt; [1] &quot;Pregledač vagona&quot;                                       
-#&gt; [2] &quot;Vozač teretnog motornog vozila i autobusa&quot;              
-#&gt; [3] &quot;Djelatnik koji obavlja poslove izvođenja glasnog pucnja&quot;
+#&gt; [1] &quot;Prvostupnik fizioterapije&quot; &quot;Galanterist&quot;              
+#&gt; [3] &quot;Ljekarnik&quot;
 ch_job(locale = &quot;uk_UA&quot;, n = 3)
-#&gt; [1] &quot;Випробувач&quot; &quot;Мірошник&quot;   &quot;Швачка&quot;
+#&gt; [1] &quot;Музикознавець&quot; &quot;Євнух&quot;         &quot;Драматург&quot;
 ch_job(locale = &quot;zh_TW&quot;, n = 3)
-#&gt; [1] &quot;播音／配音人員&quot; &quot;麵包師&quot;         &quot;產品維修人員&quot;</code></pre>
+#&gt; [1] &quot;農藝作物栽培工作者&quot; &quot;人力資源主管&quot;       &quot;醫療人員&quot;</code></pre>
 <p>For colors:</p>
 <pre class="r"><code>ch_color_name(locale = &quot;en_US&quot;, n = 3)
-#&gt; [1] &quot;RoyalBlue&quot; &quot;Pink&quot;      &quot;Khaki&quot;
+#&gt; [1] &quot;GreenYellow&quot;      &quot;MediumAquaMarine&quot; &quot;Linen&quot;
 ch_color_name(locale = &quot;uk_UA&quot;, n = 3)
-#&gt; [1] &quot;Колір засмаги&quot;   &quot;Темно-кораловий&quot; &quot;Блаватний&quot;</code></pre>
+#&gt; [1] &quot;Темно-оливковий&quot; &quot;Шкіра буйвола&quot;   &quot;Карміновий&quot;</code></pre>
 <p>More coming soon …</p>
 </div>
 <div id="generate-a-dataset" class="section level2">
 <h2>generate a dataset</h2>
 <pre class="r"><code>ch_generate()
 #&gt; # A tibble: 10 x 3
-#&gt;    name                       job                           phone_number  
-#&gt;    &lt;chr&gt;                      &lt;chr&gt;                         &lt;chr&gt;         
-#&gt;  1 Dr. Rube Jenkins           Garment/textile technologist  03032473162   
-#&gt;  2 Nicolas Rohan II           Community arts worker         832.223.2113x…
-#&gt;  3 Lisette Kunde              Chemical engineer             894-412-4188x…
-#&gt;  4 Tanika Bayer               Teacher, music                317-851-3598x…
-#&gt;  5 Wesley Paucek              Housing manager/officer       049.669.5051  
-#&gt;  6 Casey Walter               Immunologist                  00838982753   
-#&gt;  7 Nakisha DuBuque-Runolfsson Solicitor, Scotland           546-479-6195x…
-#&gt;  8 Ray Nolan                  Broadcast engineer            046-837-3872x…
-#&gt;  9 Cindy Rosenbaum-Zboncak    Development worker, community (342)135-9921 
-#&gt; 10 Dr. Reino Romaguera        Best boy                      720-227-6908</code></pre>
+#&gt;    name                   job                          phone_number       
+#&gt;    &lt;chr&gt;                  &lt;chr&gt;                        &lt;chr&gt;              
+#&gt;  1 Judy Sporer            Camera operator              1-367-536-0011     
+#&gt;  2 Marquis Mohr           Fast food restaurant manager (542)769-1599x518  
+#&gt;  3 Ludwig Zemlak          Operations geologist         922.974.3789x94351 
+#&gt;  4 Jocelynn Conroy-Mante  Multimedia programmer        299.424.0069x6296  
+#&gt;  5 Mr. Kale Hettinger DDS Research scientist (maths)   (540)764-1898x22536
+#&gt;  6 Georgeann Hermiston    Forensic psychologist        1-508-036-8142     
+#&gt;  7 Kisha Auer             Housing manager/officer      09031038228        
+#&gt;  8 Mannie Bauch           Hydrogeologist               1-520-018-4070     
+#&gt;  9 Mr. Solomon Stokes     Seismic interpreter          (677)625-4925x24154
+#&gt; 10 Aaron Koss             Counsellor                   693.127.2970x147</code></pre>
 <pre class="r"><code>ch_generate('job', 'phone_number', n = 30)
 #&gt; # A tibble: 30 x 2
-#&gt;    job                                      phone_number       
-#&gt;    &lt;chr&gt;                                    &lt;chr&gt;              
-#&gt;  1 Secretary, company                       (176)766-6539x98163
-#&gt;  2 Accommodation manager                    756-275-2881x5444  
-#&gt;  3 Technical author                         1-238-563-1014x9137
-#&gt;  4 Diagnostic radiographer                  +25(9)2759353471   
-#&gt;  5 Trade mark attorney                      632-364-4032x3837  
-#&gt;  6 Fisheries officer                        03784472866        
-#&gt;  7 Public affairs consultant                642-477-1823x9911  
-#&gt;  8 Geographical information systems officer 590-683-8806x87386 
-#&gt;  9 Medical laboratory scientific officer    747.240.4935       
-#&gt; 10 Physicist, medical                       389.193.5038       
+#&gt;    job                              phone_number        
+#&gt;    &lt;chr&gt;                            &lt;chr&gt;               
+#&gt;  1 Scientific laboratory technician (850)989-7631x97561 
+#&gt;  2 Health and safety inspector      1-331-469-3494x07155
+#&gt;  3 Scientist, audiological          (949)866-2603x6495  
+#&gt;  4 Engineer, site                   916-028-1084x07115  
+#&gt;  5 Advertising account executive    (003)000-9606x58336 
+#&gt;  6 Doctor, general practice         1-515-692-0101      
+#&gt;  7 Special effects artist           302.750.6226        
+#&gt;  8 Film/video editor                (815)318-0611x01524 
+#&gt;  9 Personal assistant               1-239-383-1485      
+#&gt; 10 Psychotherapist                  451.956.1823x6932   
 #&gt; # ... with 20 more rows</code></pre>
 </div>
 <div id="data-types" class="section level2">
@@ -1597,53 +1597,57 @@ ch_color_name(locale = &quot;uk_UA&quot;, n = 3)
 <div id="person-name" class="section level3">
 <h3>person name</h3>
 <pre class="r"><code>ch_name()
-#&gt; [1] &quot;Miss Fiona Hettinger DVM&quot;</code></pre>
+#&gt; [1] &quot;Mr. Kaiden Sawayn V&quot;</code></pre>
 <pre class="r"><code>ch_name(10)
-#&gt;  [1] &quot;Ronal McDermott&quot;       &quot;Eric Hand&quot;            
-#&gt;  [3] &quot;Mr. Kasey Roberts Jr.&quot; &quot;Mrs. Olivine Osinski&quot; 
-#&gt;  [5] &quot;Delma Dickinson DVM&quot;   &quot;Milo Glover&quot;          
-#&gt;  [7] &quot;Abdiel Yost&quot;           &quot;Latanya King&quot;         
-#&gt;  [9] &quot;Sabastian Zboncak&quot;     &quot;Dr. Dora Hammes DVM&quot;</code></pre>
+#&gt;  [1] &quot;Mrs. Zandra Hackett&quot;     &quot;Elyssa Gulgowski&quot;       
+#&gt;  [3] &quot;Dr. Tyrone Ferry&quot;        &quot;Bonnie Hagenes&quot;         
+#&gt;  [5] &quot;Mr. Romeo Zieme DVM&quot;     &quot;Lavona Stroman&quot;         
+#&gt;  [7] &quot;Ms. Tayler Haag&quot;         &quot;Gaige Bernier&quot;          
+#&gt;  [9] &quot;Hazen Vandervort&quot;        &quot;Gerold Cummerata-Grimes&quot;</code></pre>
 </div>
 <div id="phone-number" class="section level3">
 <h3>phone number</h3>
 <pre class="r"><code>ch_phone_number()
-#&gt; [1] &quot;624.842.8023x0490&quot;</code></pre>
+#&gt; [1] &quot;202.983.9204&quot;</code></pre>
 <pre class="r"><code>ch_phone_number(10)
-#&gt;  [1] &quot;+48(4)9316992700&quot;  &quot;+09(0)7272220687&quot;  &quot;1-770-726-3350&quot;   
-#&gt;  [4] &quot;719.617.7928&quot;      &quot;+25(1)4441957520&quot;  &quot;1-601-264-1417&quot;   
-#&gt;  [7] &quot;192-090-5794x8002&quot; &quot;00622724252&quot;       &quot;398-551-3270x449&quot; 
-#&gt; [10] &quot;(210)784-5702x647&quot;</code></pre>
+#&gt;  [1] &quot;1-206-722-5481x1441&quot; &quot;1-411-619-5450x3244&quot; &quot;853.148.3140&quot;       
+#&gt;  [4] &quot;780.223.8724x856&quot;    &quot;319-563-9854x07865&quot;  &quot;05226231709&quot;        
+#&gt;  [7] &quot;1-668-619-9351&quot;      &quot;(528)949-0545x883&quot;   &quot;814.730.1022x316&quot;   
+#&gt; [10] &quot;107-705-6803x34432&quot;</code></pre>
 </div>
 <div id="job" class="section level3">
 <h3>job</h3>
 <pre class="r"><code>ch_job()
-#&gt; [1] &quot;Museum/gallery curator&quot;</code></pre>
+#&gt; [1] &quot;Environmental health practitioner&quot;</code></pre>
 <pre class="r"><code>ch_job(10)
-#&gt;  [1] &quot;Nature conservation officer&quot; &quot;Engineer, mining&quot;           
-#&gt;  [3] &quot;Risk analyst&quot;                &quot;Designer, furniture&quot;        
-#&gt;  [5] &quot;Education officer, museum&quot;   &quot;Higher education lecturer&quot;  
-#&gt;  [7] &quot;Music tutor&quot;                 &quot;Research scientist (maths)&quot; 
-#&gt;  [9] &quot;Lexicographer&quot;               &quot;Occupational hygienist&quot;</code></pre>
+#&gt;  [1] &quot;Loss adjuster, chartered&quot;                
+#&gt;  [2] &quot;Television camera operator&quot;              
+#&gt;  [3] &quot;Conservation officer, historic buildings&quot;
+#&gt;  [4] &quot;Hydrogeologist&quot;                          
+#&gt;  [5] &quot;Production assistant, radio&quot;             
+#&gt;  [6] &quot;Site engineer&quot;                           
+#&gt;  [7] &quot;Research scientist (maths)&quot;              
+#&gt;  [8] &quot;Barrister&quot;                               
+#&gt;  [9] &quot;Pharmacologist&quot;                          
+#&gt; [10] &quot;Amenity horticulturist&quot;</code></pre>
 </div>
 <div id="credit-cards" class="section level3">
 <h3>credit cards</h3>
 <pre class="r"><code>ch_credit_card_provider()
-#&gt; [1] &quot;Maestro&quot;
+#&gt; [1] &quot;Discover&quot;
 ch_credit_card_provider(n = 4)
-#&gt; [1] &quot;Mastercard&quot;       &quot;Voyager&quot;          &quot;VISA 16 digit&quot;   
-#&gt; [4] &quot;American Express&quot;</code></pre>
+#&gt; [1] &quot;VISA 16 digit&quot; &quot;Discover&quot;      &quot;Maestro&quot;       &quot;JCB 16 digit&quot;</code></pre>
 <pre class="r"><code>ch_credit_card_number()
-#&gt; [1] &quot;3748464464469461&quot;
+#&gt; [1] &quot;502041135452732&quot;
 ch_credit_card_number(n = 10)
-#&gt;  [1] &quot;4800004198534897&quot;    &quot;54958287613799373&quot;   &quot;676231076965784&quot;    
-#&gt;  [4] &quot;3337013655555534144&quot; &quot;4407106818436689&quot;    &quot;3528609408271169955&quot;
-#&gt;  [7] &quot;4108643086250&quot;       &quot;3158593336043226738&quot; &quot;6011140503841684099&quot;
-#&gt; [10] &quot;4424599784454216&quot;</code></pre>
+#&gt;  [1] &quot;3405222329210947&quot;    &quot;3112783185875830541&quot; &quot;4856493326911841&quot;   
+#&gt;  [4] &quot;52194291540008498&quot;   &quot;51436917795410462&quot;   &quot;3055719091956532&quot;   
+#&gt;  [7] &quot;4248474110967&quot;       &quot;3028600541934690&quot;    &quot;3018386127265689&quot;   
+#&gt; [10] &quot;639096780650568&quot;</code></pre>
 <pre class="r"><code>ch_credit_card_security_code()
-#&gt; [1] &quot;188&quot;
+#&gt; [1] &quot;781&quot;
 ch_credit_card_security_code(10)
-#&gt;  [1] &quot;368&quot;  &quot;7546&quot; &quot;8950&quot; &quot;422&quot;  &quot;320&quot;  &quot;387&quot;  &quot;250&quot;  &quot;804&quot;  &quot;454&quot;  &quot;712&quot;</code></pre>
+#&gt;  [1] &quot;880&quot;  &quot;0838&quot; &quot;249&quot;  &quot;492&quot;  &quot;045&quot;  &quot;943&quot;  &quot;5684&quot; &quot;478&quot;  &quot;385&quot;  &quot;435&quot;</code></pre>
 </div>
 </div>
 <div id="messy-data" class="section level2">
@@ -1651,31 +1655,31 @@ ch_credit_card_security_code(10)
 <p>Real data is messy, right? <code>charlatan</code> makes it easy to create messy data. This is still in the early stages so is not available across most data types and languages, but we’re working on it.</p>
 <p>For example, create messy names:</p>
 <pre class="r"><code>ch_name(50, messy = TRUE)
-#&gt;  [1] &quot;Krystal Wilderman-Crist&quot; &quot;Mr Nevin Stehr&quot;         
-#&gt;  [3] &quot;Harris Kris&quot;             &quot;Ilona Bergstrom&quot;        
-#&gt;  [5] &quot;Mr Tanner Sipes IV&quot;      &quot;Arther Hegmann&quot;         
-#&gt;  [7] &quot;Sherilyn Lubowitz&quot;       &quot;Dr Bee Harvey md&quot;       
-#&gt;  [9] &quot;Agusta Runte-Dickinson&quot;  &quot;Alphonso Koepp&quot;         
-#&gt; [11] &quot;Burr Gibson&quot;             &quot;Soloman Murray&quot;         
-#&gt; [13] &quot;Jerold Hamill&quot;           &quot;Pattie Gorczany m.d.&quot;   
-#&gt; [15] &quot;Dr Vessie Herman&quot;        &quot;Irvine Bradtke-Hackett&quot; 
-#&gt; [17] &quot;Mr Tristen Schimmel&quot;     &quot;Jack Carter&quot;            
-#&gt; [19] &quot;Hurley Bauch&quot;            &quot;Efrain Kirlin-Gleichner&quot;
-#&gt; [21] &quot;Ethan Boehm I&quot;           &quot;Willaim Stokes&quot;         
-#&gt; [23] &quot;Bev Kihn-Murazik&quot;        &quot;Mauricio Rippin&quot;        
-#&gt; [25] &quot;Dr Tilden Littel Jr&quot;     &quot;Abie Erdman&quot;            
-#&gt; [27] &quot;Austin Kuhlman&quot;          &quot;Byron Hills&quot;            
-#&gt; [29] &quot;Bernita Reichert Ph.D.&quot;  &quot;Kristi Hickle&quot;          
-#&gt; [31] &quot;Leslee Bartell DVM&quot;      &quot;Nia Connelly&quot;           
-#&gt; [33] &quot;Mrs. Velda Dickens md&quot;   &quot;Susanna VonRueden&quot;      
-#&gt; [35] &quot;Garrick Langosh&quot;         &quot;Davon Gerlach&quot;          
-#&gt; [37] &quot;Dr Barbra Reynolds DVM&quot;  &quot;Dr. Lupe Mitchell md&quot;   
-#&gt; [39] &quot;Wilson Carter II&quot;        &quot;Omari Kuvalis&quot;          
-#&gt; [41] &quot;Bernice Bergnaum&quot;        &quot;Raegan Braun-Lindgren&quot;  
-#&gt; [43] &quot;Ardis Walter&quot;            &quot;Miss Luciana Lynch DVM&quot; 
-#&gt; [45] &quot;Emmitt Yundt&quot;            &quot;Johnson Funk&quot;           
-#&gt; [47] &quot;Ebert Spencer IV&quot;        &quot;Earnest Cummerata&quot;      
-#&gt; [49] &quot;Moody Koch Jr.&quot;          &quot;Lex Lehner Sr&quot;</code></pre>
+#&gt;  [1] &quot;Garnet Kub&quot;                   &quot;Larue Cormier&quot;               
+#&gt;  [3] &quot;Dr. Elden Monahan Jr.&quot;        &quot;Male Kreiger-Blanda&quot;         
+#&gt;  [5] &quot;Alden Daugherty I&quot;            &quot;Claude Cartwright&quot;           
+#&gt;  [7] &quot;Jelani Ziemann-Huel&quot;          &quot;Malaya Swaniawski&quot;           
+#&gt;  [9] &quot;Orrie Morar Jr.&quot;              &quot;Dr. Phoenix Haley&quot;           
+#&gt; [11] &quot;Delwin Hoeger&quot;                &quot;Lora Rowe&quot;                   
+#&gt; [13] &quot;Faye Stoltenberg-Rutherford&quot;  &quot;Wellington Stehr-Hudson&quot;     
+#&gt; [15] &quot;Ms. Mckenna Block&quot;            &quot;Dawna Barton&quot;                
+#&gt; [17] &quot;Dr. Barnard Beer V&quot;           &quot;Naoma Beahan&quot;                
+#&gt; [19] &quot;Harrell Fisher&quot;               &quot;Killian Hyatt&quot;               
+#&gt; [21] &quot;Arta Parisian&quot;                &quot;Mr. Boyce Gottlieb PhD&quot;      
+#&gt; [23] &quot;Weaver Gleason&quot;               &quot;Chaim Larson&quot;                
+#&gt; [25] &quot;Danniel Davis V&quot;              &quot;Tylor Wiza&quot;                  
+#&gt; [27] &quot;Mrs. Kenzie Bergnaum md&quot;      &quot;Dr. Madilyn VonRueden d.d.s.&quot;
+#&gt; [29] &quot;Fairy Goldner&quot;                &quot;Rolanda Fadel-Mohr&quot;          
+#&gt; [31] &quot;Sherryl Kertzmann PhD&quot;        &quot;Rylee Keeling-Kreiger&quot;       
+#&gt; [33] &quot;Mr. Jaxson Crist IV&quot;          &quot;Cris Wiegand&quot;                
+#&gt; [35] &quot;Miss Willodean Stokes dvm&quot;    &quot;Jamaal Wyman-Kris&quot;           
+#&gt; [37] &quot;Lindsey Ebert-Dooley&quot;         &quot;Dr. Santo Treutel&quot;           
+#&gt; [39] &quot;Jonna Murphy&quot;                 &quot;Holly Erdman&quot;                
+#&gt; [41] &quot;Mr. Theophile Flatley&quot;        &quot;Logan Hartmann&quot;              
+#&gt; [43] &quot;Gil Wiegand-O'Reilly&quot;         &quot;Beau Anderson V&quot;             
+#&gt; [45] &quot;Tobias King&quot;                  &quot;Louie Little&quot;                
+#&gt; [47] &quot;Constance Cummings&quot;           &quot;Kamila Wilderman&quot;            
+#&gt; [49] &quot;Otis Anderson&quot;                &quot;Pluma Runolfsdottir&quot;</code></pre>
 <p>Right now only suffixes and prefixes for names in <code>en_US</code> locale are supported. Notice above some variation in prefixes and suffixes.</p>
 </div>
 

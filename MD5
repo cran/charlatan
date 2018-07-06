@@ -1,7 +1,7 @@
-bf2fa85deacc58bb83787833a09302f6 *DESCRIPTION
+473f431a46a719c62187aaebe12e4c3a *DESCRIPTION
 1b96a74f7e95cf508e814ad0c04525e5 *LICENSE
 4ba7685ee925480c6afb83b5c706d1c6 *NAMESPACE
-d929e85733ab11fac884d01b22025296 *NEWS.md
+401805d2a96b52ecbeb9a067edacb57c *NEWS.md
 f6962e69b0b11a8573e3828451094df2 *R/address-provider-en_GB.R
 fd32c136683ac8fe5f4c132848df6e3f *R/address-provider-en_US.R
 93fea891fb2ff122d96f2e3449736373 *R/address-provider.R
@@ -47,7 +47,7 @@ affc347e53bf8c68d9ea4affa7e04f84 *R/globals.R
 02294a9eb14db3a9bbd83b09a3d50bc0 *R/internet-provider-fa_IR.R
 9f1ce85d07f288f84208d0ba22cfcf17 *R/internet-provider-fr_FR.R
 6390f47c4c00364ab5a80bed961225ee *R/internet-provider-hr_HR.R
-58b2d6de968497cc1646b262976f2a1b *R/internet-provider.R
+3b5b14b5e3bf31e77f98e4f0db1ca33e *R/internet-provider.R
 ab41eb0a33bf850056161324df362cdf *R/job.R
 7908eff57fa057594da09e9e5e8831b6 *R/jobs-provider-en_US.R
 b7e7ce282e021d43fc3294cfa6480f8f *R/jobs-provider-fa_IR.R
@@ -110,12 +110,12 @@ ae8f79bd3a8590ca9b2c1067abfd6b8c *R/sequences.R
 53ea3bc1c94ebfe77fa3241555c10868 *R/taxonomy.R
 128f80fa634b6e7cc8af5c1ce0a9b0d9 *R/useragent-provider.R
 f0d8e2b0fd0fe05455dcf77223c1e4cd *R/zzz.R
-ee3cc77e43a0e3eaa4522aac0f35ddc6 *README.md
+58be2123ed56dbb24d1e995b526caade *README.md
 a3bf310bc4875fa07b687413269acbc7 *build/vignette.rds
 819ba0ea5ce57caff59ca4e6a0522d60 *data/available_locales_df.rda
 2cfed50a8b892263b678cb6bd1b1ac27 *inst/doc/charlatan_vignette.R
 fa1fc164483698438c53828fca0b57ea *inst/doc/charlatan_vignette.Rmd
-c1ad78af15a62b7a65b410dc5e0ffe7d *inst/doc/charlatan_vignette.html
+c768093bd2e652a61aba1c0fa600c028 *inst/doc/charlatan_vignette.html
 1ed2de20f9591a4dcd10a6ca137ab2cc *inst/ignore/ascii-stuff.R
 df43e0b18bada9e086cc1b358b5e5fdb *inst/ignore/company-provider.R
 89ba57c23db09ae97b29f6a3bb5e5213 *man/AddressProvider.Rd
@@ -129,7 +129,7 @@ a6c9f777cfa65eb60ac61dcfd874244c *man/CurrencyProvider.Rd
 0a9fd734a99b25bc5d438b8a629a7b46 *man/DateTimeProvider.Rd
 5b7f52df85a50992f5f291307361290f *man/ElementProvider.Rd
 fcd306d16a59976ca63dea197cb5e7d5 *man/FileProvider.Rd
-7e839180c496f32fb301de07ea0c623e *man/InternetProvider.Rd
+7dd5ffbf9a6524ca56e7d7f9c9120ea1 *man/InternetProvider.Rd
 7f1af4a160adb9faa30a8169bc739965 *man/JobProvider.Rd
 f8ae87d2777cd6f315fb6506cbc0f63f *man/LoremProvider.Rd
 dc6593644ad56e6aae0557e4fc647cdc *man/MiscProvider.Rd
