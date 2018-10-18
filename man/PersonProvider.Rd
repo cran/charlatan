@@ -10,8 +10,8 @@
 person_provider_locales
 }
 \arguments{
-\item{locale}{(character) the locale to use. Run
-\code{person_provider_locales()} for locales supported (default: en_US)}
+\item{locale}{(character) the locale to use. See
+\code{person_provider_locales} for locales supported (default: en_US)}
 
 \item{messy}{(logical) make some messy data. Default: \code{FALSE}}
 }
@@ -108,7 +108,7 @@ PersonProvider$new(locale = "de_DE")$render()
 PersonProvider$new(locale = "de_AT")$render()
 PersonProvider$new(locale = "cs_CZ")$render()
 PersonProvider$new(locale = "bg_BG")$render()
-PersonProvider$new(locale = "dk_DK")$render()
+PersonProvider$new(locale = "da_DK")$render()
 }
 \keyword{datasets}
 \keyword{internal}

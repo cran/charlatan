@@ -9,8 +9,8 @@ ch_job(n = 1, locale = NULL)
 \arguments{
 \item{n}{(integer) number of things to get, any non-negative integer}
 
-\item{locale}{(character) the locale to use. Run
-\code{job_provider_locales()} for locales supported (default: en_US)}
+\item{locale}{(character) the locale to use. See
+\code{job_provider_locales} for locales supported (default: en_US)}
 }
 \description{
 Create fake jobs
@@ -20,6 +20,7 @@ ch_job()
 ch_job(10)
 ch_job(500)
 
+ch_job(locale = "da_DK", n = 10)
 ch_job(locale = "fi_FI", n = 10)
 ch_job(locale = "fr_FR", n = 10)
 ch_job(locale = "fr_CH", n = 10)

@@ -14,8 +14,35 @@ test_that("PersonProvider works", {
   expect_is(aa$render(), "character")
   expect_is(aa$render(), "character")
 
+  expect_is(aa$first_name(), "character")
+  expect_is(aa$first_name_female(), "character")
+  expect_is(aa$first_name_male(), "character")
+  expect_is(aa$last_name(), "character")
+  expect_is(aa$last_name_female(), "character")
+  expect_is(aa$last_name_male(), "character")
+  expect_is(aa$prefix(), "character")
+  expect_is(aa$prefix_female(), "character")
+  expect_is(aa$prefix_male(), "character")
+  expect_is(aa$suffix(), "character")
+  expect_is(aa$suffix_female(), "character")
+  expect_is(aa$suffix_male(), "character")
+
   aa <- PersonProvider$new(locale = "fi_FI")
   expect_equal(aa$locale, "fi_FI")
+
+  expect_is(aa$render(), "character")
+  expect_is(aa$first_name(), "character")
+  expect_is(aa$first_name_female(), "character")
+  expect_is(aa$first_name_male(), "character")
+  expect_is(aa$last_name(), "character")
+  expect_is(aa$last_name_female(), "character")
+  expect_is(aa$last_name_male(), "character")
+  expect_is(aa$prefix(), "character")
+  expect_is(aa$prefix_female(), "character")
+  expect_is(aa$prefix_male(), "character")
+  expect_is(aa$suffix(), "character")
+  expect_is(aa$suffix_female(), "character")
+  expect_is(aa$suffix_male(), "character")
 })
 
 test_that("PersonProvider fails well", {
@@ -43,10 +70,16 @@ test_that("ch_name - n parameter", {
   expect_equal(length(ch_name(n = 500)), 500)
 })
 
-test_that("ch_name - locale parameter", {
-  expect_is(ch_company(locale = "fr_FR"), "character")
-  expect_is(ch_company(locale = "de_DE"), "character")
-  expect_is(ch_company(locale = "bg_BG"), "character")
+test_that("ch_name works for all locales", {
+  test_locale <- function(loc) {
+    res <- ch_name(100, locale = loc)
+    expect_is(res, "character")
+    expect_equal(trimws(res), res)
+  }
+
+  for (loc in person_provider_locales) {
+    test_locale(loc)
+  }
 })
 
 test_that("ch_name fails well", {

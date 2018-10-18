@@ -5,13 +5,13 @@
 \alias{JobProvider}
 \alias{job_provider_locales}
 \title{JobProvider}
-\format{An object of class \code{character} of length 10.}
+\format{An object of class \code{character} of length 11.}
 \usage{
 job_provider_locales
 }
 \arguments{
-\item{locale}{(character) the locale to use. Run
-\code{job_provider_locales()} for locales supported (default: en_US)}
+\item{locale}{(character) the locale to use. See
+\code{job_provider_locales} for locales supported (default: en_US)}
 }
 \description{
 JobProvider
