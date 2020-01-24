@@ -28,6 +28,44 @@ phone_number_formats_en_us = c(
   '###.###.####x#####'
 )
 
+phone_number_formats_en_au = c(
+  # Local calls
+  '#### ####',
+  '####-####',
+  '####.####',  # domain registrars apparently use this
+  '########',
+  # National dialing
+  '0{{area_code}} #### ####',
+  '0{{area_code}}-####-####',
+  '0{{area_code}}.####.####',
+  '0{{area_code}}########',
+  # Optional parenthesis
+  '(0{{area_code}}) #### ####',
+  '(0{{area_code}})-####-####',
+  '(0{{area_code}}).####.####',
+  '(0{{area_code}})########',
+  # International drops the 0
+  '+61 {{area_code}} #### ####',
+  '+61-{{area_code}}-####-####',
+  '+61.{{area_code}}.####.####',
+  '+61{{area_code}}########',
+  # 04 Mobile telephones (Australia-wide) mostly commonly written 4 - 3 -
+  # 3 instead of 2 - 4 - 4
+  '04## ### ###',
+  '04##-###-###',
+  '04##.###.###',
+  '+61 4## ### ###',
+  '+61-4##-###-###',
+  '+61.4##.###.###'
+)
+
+area_codes_formats_en_au = c(
+  '2',
+  '3',
+  '7',
+  '8'
+)
+
 phone_number_formats_es_es = c(
   '+34 ### ### ###',
   '+34 #########',
@@ -63,6 +101,64 @@ phone_number_formats_es_mx = c(
   '1-###-###-####x#####',
   '###.###.####x#####'
 )
+
+area_codes_formats_es_pe = c(
+  #1',  # Lima / Callao -- special case, phone numbers here have 7 digits
+  '41', # Amazonas
+  '43', # Ancash
+  '83', # Apurímac
+  '54', # Arequipa
+  '66', # Ayacucho
+  '76', # Cajamarca
+  '84', # Cusco
+  '67', # Huancavelica
+  '62', # Huánuco
+  '56', # Ica
+  '64', # Junín
+  '44', # La Libertad
+  '74', # Lambayeque
+  '65', # Loreto
+  '82', # Madre de Dios
+  '53', # Moquegua
+  '63', # Pasco
+  '73', # Piura
+  '51', # Puno
+  '42', # San Martín
+  '52', # Tacna
+  '72', # Tumbes
+  '61'  # Ucayali
+)
+
+phone_number_formats_es_pe = c(
+  # landline in Lima / Callao
+  '+51-1-#######',
+  '+51-1-###-####',
+  '1-#######',
+  '1-###-####',
+  '#######',
+  '###-####',
+  # national long distance prefix, also for cellphone to landline
+  '0-1-#######',
+  '0-1-###-####',
+  '01-#######',
+  '01-###-####',
+  # landline in the rest of the country
+  '+51-{{area_code}}-######',
+  '+51-{{area_code}}-###-###',
+  '{{area_code}}-######',
+  '{{area_code}}-###-###',
+  # national long distance prefix, also for cellphone to landline
+  '0-{{area_code}}-######',
+  '0-{{area_code}}-###-###',
+  '0{{area_code}}-######',
+  '0{{area_code}}-###-###',
+  # cellphone numbers always start with '9'
+  '+51-9########',
+  '+51-9##-###-###',
+  '9########',
+  '9##-###-###'
+)
+
 
 phone_number_formats_en_gb = c(
   '+44(0)##########',
@@ -114,6 +210,43 @@ phone_number_formats_el_gr = c(
   '+302#########'
 )
 
+phone_number_formats_en_nz = c(
+  # Local calls
+  '%## ####',
+  '%##-####',
+  '%######',
+  # National & Mobile dialing
+  '0{{area_code}} %## ####',
+  '0{{area_code}} %##-####',
+  '0{{area_code}}-%##-####',
+  '0{{area_code}} %######',
+  # Optional parenthesis
+  '(0{{area_code}}) %## ####',
+  '(0{{area_code}}) %##-####',
+  '(0{{area_code}}) %######',
+  # International drops the 0
+  '+64 {{area_code}} %## ####',
+  '+64 {{area_code}} %##-####',
+  '+64 {{area_code}} %######',
+  '+64-{{area_code}}-%##-####',
+  '+64{{area_code}}%######'
+)
+
+area_codes_formats_en_nz = c(
+  # Mobiles
+  '20',
+  '21',
+  '22',
+  '27',
+  '29',
+
+  '3',  # South Island
+  '4',  # Wellington
+  '6',  # Lower North Island
+  '7',  # Central North Island
+  '9'   # Auckland
+)
+
 phone_number_formats_da_dk = c(
   '+45########',
   '+45 ## ## ## ##',
@@ -124,7 +257,19 @@ phone_number_formats_da_dk = c(
   '(45) ########'
  )
 
-
+phone_number_formats_dk_dk = c(
+  '+45(0)##########',
+  '+45(0)#### ######',
+  '+45 (0) #### ######',
+  '+45(0) #########',
+  '+45(0)#### #####',
+  '0##########',
+  '0#########',
+  '0#### ######',
+  '0#### #####',
+  '(0####) ######',
+  '(0####) #####'
+)
 
 phone_number_formats_de_de = c(
   '+49(0)##########',
@@ -774,3 +919,83 @@ phone_number_formats_zh_tw = c(
   "0#-%######",
   "0# %######"
 )
+
+phone_number_formats_he_il = c(
+  '02#######',
+  '02-####-###',
+  '03#######',
+  '03-####-###',
+  '04#######',
+  '04-####-###',
+  '08#######',
+  '08-####-###',
+  '09#######',
+  '09-####-###',
+  '05#-###-####',
+  '05# ###-####',
+  '05# ### ####',
+  '05#-#######',
+  '05# #######',
+  '05########'
+)
+
+phone_number_formats_id_id = c(
+  '+62-##-###-####',
+  '+62-0##-###-####',
+
+  '+62 (0##) ### ####',
+  '+62 (0##) ###-####',
+
+  '+62 (##) ### ####',
+  '+62 (##) ###-####',
+
+  '+62-###-###-####',
+  '+62-0###-###-####',
+
+  '+62 (0###) ### ####',
+  '+62 (0###) ###-####',
+
+  '+62 (###) ### ####',
+  '+62 (###) ###-####',
+
+  '(0##) ### ####',
+  '(0##) ###-####',
+
+  '(0###) ### ####',
+  '(0###) ###-####',
+
+  '08# ### ####',
+  '08########'
+)
+
+phone_number_formats_th_th = c(
+  '+66 #### ####',
+  '+668 #### ####'
+)
+
+phone_number_formats_tw_gh = c(
+  '+23327#######',
+  '+23357#######',
+  '+23355#######',
+  '+23324#######',
+  '+23354#######',
+  '+23320#######',
+  '+23350#######',
+  '+23326#######',
+  '+23356#######',
+  '+23328#######',
+  '024#######',
+  '054#######',
+  '055#######',
+  '027#######',
+  '057#######',
+  '020#######',
+  '050#######',
+  '026#######',
+  '056#######',
+  '028#######'
+)
+
+# phone_number_formats_zh_cn = c(
+#
+# )

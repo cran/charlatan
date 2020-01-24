@@ -1,22 +1,7 @@
-#' ColorProvider
-#'
+#' @title ColorProvider
+#' @description methods for colors
 #' @export
 #' @keywords internal
-#' @param locale (character) the locale to use. See
-#' `color_provider_locales` for locales supported (default: en_US)
-#' @details
-#' **Methods**
-#'
-#' - `color_name()` - color name
-#' - `safe_color_name()` - safe color name
-#' - `hex_color()` - hex color
-#' - `safe_hex_color()` - safe hex color
-#' - `rgb_color()` - RGB color
-#' - `rgb_css_color()` - RGB CSS color
-#'
-#' @format NULL
-#' @usage NULL
-#'
 #' @examples
 #' x <- ColorProvider$new()
 #' x$locale
@@ -35,16 +20,26 @@ ColorProvider <- R6::R6Class(
   inherit = BaseProvider,
   'ColorProvider',
   public = list(
+    #' @field locale (character) xxx
     locale = NULL,
+    #' @field all_colors (character) xxx
     all_colors = NULL,
+    #' @field safe_colors (character) xxx
     safe_colors = NULL,
 
+    #' @description fetch the allowed locales for this provider
+    allowed_locales = function() private$locales,
+
+    #' @description Create a new `ColorProvider` object
+    #' @param locale (character) the locale to use. See
+    #' `$allowed_locales()` for locales supported (default: en_US)
+    #' @return A new `ColorProvider` object
     initialize = function(locale = NULL) {
       if (!is.null(locale)) {
         # check global locales
         super$check_locale(locale)
         # check person provider locales
-        check_locale_(locale, color_provider_locales)
+        check_locale_(locale, private$locales)
         self$locale <- locale
       } else {
         self$locale <- 'en_US'
@@ -53,19 +48,23 @@ ColorProvider <- R6::R6Class(
       self$safe_colors <- parse_eval("safe_colors_", self$locale)
     },
 
+    #' @description color name 
     color_name = function() {
       super$random_element(names(self$all_colors))
     },
 
+    #' @description safe color name 
     safe_color_name = function() {
       super$random_element(self$safe_colors)
     },
 
+    #' @description hex color
     hex_color = function() {
       grDevices::rgb(private$sample_col(), private$sample_col(),
                      private$sample_col(), maxColorValue = 255)
     },
 
+    #' @description safe hex color
     safe_hex_color = function() {
       x <- sprintf(
         "%x%x%x",
@@ -82,10 +81,12 @@ ColorProvider <- R6::R6Class(
       )
     },
 
+    #' @description RGB color
     rgb_color = function() {
       as.vector(grDevices::col2rgb(self$hex_color()))
     },
 
+    #' @description RGB CSS color
     rgb_css_color = function() {
       sprintf("rgb(%s)", paste0(self$rgb_color(), collapse = ", "))
     }
@@ -101,11 +102,8 @@ ColorProvider <- R6::R6Class(
       sprintf("(%s)", paste0(color, collapse = ", "))
     },
 
-    sample_col = function() sample(0:255, 1)
+    sample_col = function() sample(0:255, 1),
 
+    locales = c("uk_UA", "en_US")
   )
 )
-
-#' @export
-#' @rdname ColorProvider
-color_provider_locales <- c("uk_UA", "en_US")

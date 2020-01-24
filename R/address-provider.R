@@ -1,30 +1,12 @@
-#' AddressProvider
-#'
+#' @title AddressProvider
+#' @description address methods
 #' @include datetime-provider.R
 #' @export
 #' @keywords internal
-#' @param locale (character) the locale to use. See
-#' `address_provider_locales` for locales supported (default: en_US)
-#' @details
-#' **Methods**
-#'
-#' - `city_suffix()` - city suffix
-#' - `street_suffix()` - street suffix
-#' - `building_number()` - building number
-#' - `city()` - city
-#' - `street_name()` - street name
-#' - `street_address()` - street address
-#' - `address()` - address
-#' - `country()` - country
-#' - `country_code()` - country code
-#' - `postcode()` - postal code
-#'
-#' @format NULL
-#' @usage NULL
-#'
 #' @examples
 #' (z <- AddressProvider$new())
 #' z$locale
+#' z$allowed_locales()
 #' z$city_suffix()
 #' z$street_suffix()
 #' z$building_number()
@@ -45,38 +27,75 @@
 #' z$postcode
 #' z$postcode()
 #' z$street_name()
+#' 
+#' # en_NZ
+#' (z <- AddressProvider$new('en_NZ'))
+#' z$locale
+#' z$street_name()
+#' 
+#' # es_ES
+#' (z <- AddressProvider$new('es_ES'))
+#' z$locale
+#' z$street_name()
 AddressProvider <- R6::R6Class(
   inherit = BaseProvider,
   'AddressProvider',
   lock_objects = FALSE,
   public = list(
+    #' @field locale (character) xxx
     locale = NULL,
+    #' @field city_prefixes (character) xxx
     city_prefixes = NULL,
+    #' @field city_suffixes (character) xxx
     city_suffixes = NULL,
+    #' @field street_suffixes (character) xxx
     street_suffixes = NULL,
+    #' @field building_number_formats (character) xxx
     building_number_formats = NULL,
+    #' @field postcode_formats (character) xxx
     postcode_formats = NULL,
+    #' @field states (character) xxx
     states = NULL,
+    #' @field states_abbr (character) xxx
     states_abbr = NULL,
+    #' @field military_state_abbr (character) xxx
     military_state_abbr = NULL,
+    #' @field military_ship_prefix (character) xxx
     military_ship_prefix = NULL,
+    #' @field military_apo_format (character) xxx
     military_apo_format = NULL,
+    #' @field military_dpo_format (character) xxx
     military_dpo_format = NULL,
+    #' @field city_formats (character) xxx
     city_formats = NULL,
+    #' @field street_name_formats (character) xxx
     street_name_formats = NULL,
+    #' @field street_address_formats (character) xxx
     street_address_formats = NULL,
+    #' @field address_formats (character) xxx
     address_formats = NULL,
+    #' @field secondary_address_formats (character) xxx
     secondary_address_formats = NULL,
+    #' @field countries (character) xxx
     countries = vapply(DateTimeProvider$new()$countries, "[[", "", "name"),
+    #' @field country_codes (character) xxx
     country_codes = vapply(DateTimeProvider$new()$countries, "[[", "", "code"),
+    #' @field locale_data (character) xxx
     locale_data = list(),
 
+    #' @description fetch the allowed locales for this provider
+    allowed_locales = function() private$locales,
+
+    #' @description Create a new `AddressProvider` object
+    #' @param locale (character) the locale to use. See
+    #' `$allowed_locales()` for locales supported (default: en_US)
+    #' @return A new `AddressProvider` object
     initialize = function(locale = NULL) {
       if (!is.null(locale)) {
         # check global locales
         super$check_locale(locale)
         # check address provider locales
-        check_locale_(locale, address_provider_locales)
+        check_locale_(locale, private$locales)
         self$locale <- locale
       } else {
         self$locale <- 'en_US'
@@ -104,18 +123,22 @@ AddressProvider <- R6::R6Class(
       self$locale_data <- parse_eval("locale_data_", self$locale)
     },
 
+    #' @description city suffix
     city_suffix = function() {
       super$random_element(self$city_suffixes)
     },
 
+    #' @description street suffix
     street_suffix = function() {
       super$random_element(self$street_suffixes)
     },
 
+    #' @description building numeber
     building_number = function() {
       super$numerify(super$random_element(self$building_number_formats))
     },
 
+    #' @description city
     city = function() {
       pattern <- super$random_element(self$city_formats)
       # PersonProvider must implement the same locales for this to work
@@ -129,6 +152,7 @@ AddressProvider <- R6::R6Class(
       whisker::whisker.render(pattern, data = dat)
     },
 
+    #' @description street name
     street_name = function() {
       pattern <- super$random_element(self$street_name_formats)
       # PersonProvider must implement the same locales for this to work
@@ -138,9 +162,15 @@ AddressProvider <- R6::R6Class(
         last_name = pp$last_name(),
         street_suffix = super$random_element(self$street_suffixes)
       )
+      if (self$locale == "en_NZ") {
+        dat$te_reo_first <- super$random_element(self$locale_data$te_reo_first)
+        dat$te_reo_part <- super$random_element(self$locale_data$te_reo_parts)
+        dat$te_reo_ending <- super$random_element(self$locale_data$te_reo_ending)
+      }
       whisker::whisker.render(pattern, data = dat)
     },
 
+    #' @description street address
     street_address = function() {
       pattern <- super$random_element(self$street_address_formats)
       dat <- list(
@@ -151,6 +181,7 @@ AddressProvider <- R6::R6Class(
       whisker::whisker.render(pattern, data = dat)
     },
 
+    #' @description postal code
     postcode = function() {
       switch(
         self$locale,
@@ -168,6 +199,7 @@ AddressProvider <- R6::R6Class(
       )
     },
 
+    #' @description address
     address = function() {
       pattern <- super$random_element(self$address_formats)
       dat <- list(
@@ -179,10 +211,12 @@ AddressProvider <- R6::R6Class(
       whisker::whisker.render(pattern, data = dat)
     },
 
+    #' @description country name
     country = function() {
       super$random_element(self$countries)
     },
 
+    #' @description country code
     country_code = function() {
       super$random_element(self$country_codes)
     }
@@ -207,11 +241,8 @@ AddressProvider <- R6::R6Class(
     #     @classmethod
     #     def longitude(cls):
     #         return cls.geo_coordinate()
+  ),
+  private = list(
+    locales = c("en_US", "en_GB", "en_NZ", "es_ES")
   )
-)
-
-#' @export
-#' @rdname AddressProvider
-address_provider_locales <- c(
-  "en_US", "en_GB"
 )

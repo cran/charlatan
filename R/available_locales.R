@@ -16,13 +16,14 @@ charlatan_locales <- function() available_locales_df
 # generate with:
 # available_locales_df <- data.table::setDF(data.table::rbindlist(
 #      lapply(available_locales, stringi::stri_locale_info)))
-# save(available_locales_df, file = "data/available_locales_df.rda")
+# save(available_locales_df, version=2, file="data/available_locales_df.rda")
 available_locales <- c(
   'ar_AA',
   'bg_BG',
   'bs_BA',
   'cs_CZ',
   'da_DK',
+  'dk_DK',
   'de_AT',
   'de_DE',
   'el_GR',
@@ -31,9 +32,11 @@ available_locales <- c(
   'en_CA',
   'en_GB',
   'en_US',
+  'en_NZ',
   'es',
   'es_ES',
   'es_MX',
+  'es_PE',
   'fa_IR',
   'fi_FI',
   'fr_CH',
@@ -42,6 +45,7 @@ available_locales <- c(
   'hi_IN',
   'hr_HR',
   'hu_HU',
+  'id_ID',
   'it_IT',
   'ja_JP',
   'ko_KR',
@@ -59,7 +63,9 @@ available_locales <- c(
   'sk_SK',
   'sl_SL',
   'sv_SE',
+  'th_TH',
   'tr_TR',
+  'tw_GH',
   'uk_UA',
   'zh_CN',
   'zh_TW'

@@ -1,22 +1,7 @@
-#' CompanyProvider
-#'
+#' @title CompanyProvider
+#' @description company name/etc. methods
 #' @export
 #' @keywords internal
-#' @param locale (character) the locale to use. See
-#' `company_provider_locales` for locales supported (default: en_US)
-#' @details
-#' **Methods**
-#'
-#' - `company()` - a company name
-#' - `company_prefix()` - a company prefix
-#' - `company_suffix()` - a company suffix
-#' - `bs()` - bs
-#' - `catch_phrase()` - a catch phrase
-#' - `siren()` - a siren
-#'
-#' @format NULL
-#' @usage NULL
-#'
 #' @examples
 #' x <- CompanyProvider$new()
 #' x$locale
@@ -56,20 +41,34 @@ CompanyProvider <- R6::R6Class(
   'CompanyProvider',
   inherit = BaseProvider,
   public = list(
+    #' @field locale (character) xxx
     locale = NULL,
+    #' @field formats (character) xxx
     formats = NULL,
+    #' @field prefixes (character) xxx
     prefixes = NULL,
+    #' @field suffixes (character) xxx
     suffixes = NULL,
+    #' @field catch_phrase_words (character) xxx
     catch_phrase_words = NULL,
+    #' @field bsWords (character) xxx
     bsWords = NULL,
+    #' @field siren_format (character) xxx
     siren_format = NULL,
 
+    #' @description fetch the allowed locales for this provider
+    allowed_locales = function() private$locales,
+
+    #' @description Create a new `CompanyProvider` object
+    #' @param locale (character) the locale to use. See
+    #' `$allowed_locales()` for locales supported (default: en_US)
+    #' @return A new `CompanyProvider` object
     initialize = function(locale = NULL) {
       if (!is.null(locale)) {
         # check global locales
         super$check_locale(locale)
         # check person provider locales
-        check_locale_(locale, company_provider_locales)
+        check_locale_(locale, private$locales)
         self$locale <- locale
       } else {
         self$locale <- 'en_US'
@@ -83,6 +82,7 @@ CompanyProvider <- R6::R6Class(
       self$siren_format <- parse_eval("siren_format_", self$locale)
     },
 
+    #' @description a company name
     company = function() {
       if (self$locale == "fa_IR") {
         super$random_element(company_names_fa_ir)
@@ -91,6 +91,7 @@ CompanyProvider <- R6::R6Class(
       }
     },
 
+    #' @description a company prefix
     company_prefix = function() {
       if (!is.null(self$prefixes)) {
         super$random_element(self$prefixes)
@@ -99,18 +100,22 @@ CompanyProvider <- R6::R6Class(
       }
     },
 
+    #' @description a company suffix
     company_suffix = function() {
       super$random_element(self$suffixes)
     },
 
+    #' @description a catch phrase
     catch_phrase = function() {
       private$makeit(self$catch_phrase_words)
     },
 
+    #' @description BS words
     bs = function() {
       private$makeit(self$bsWords)
     },
 
+    #' @description a siren
     siren = function() {
       if (!is.null(self$siren_format)) {
         super$numerify(self$siren_format)
@@ -149,14 +154,9 @@ CompanyProvider <- R6::R6Class(
           company_suffix = super$random_element(suffix)
         )
       )
-    }
+    },
+
+    locales = c("bg_BG", "cs_CZ", "de_DE", "en_US", "es_MX", "fa_IR",
+      "fr_FR", "hr_HR", "it_IT")
   )
-)
-
-
-#' @export
-#' @rdname CompanyProvider
-company_provider_locales <- c(
-  "bg_BG", "cs_CZ", "de_DE", "en_US", "es_MX", "fa_IR", "fr_FR",
-  "hr_HR", "it_IT"
 )

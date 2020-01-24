@@ -1,19 +1,7 @@
-#' FileProvider
-#'
+#' @title FileProvider
+#' @description file methods
 #' @export
 #' @keywords internal
-#' @param locale (character) the locale to use. See
-#' `file_provider_locales` for locales supported (default: en_US)
-#' @details
-#' **Methods**
-#'
-#' - `mime_type(category)` - mime type
-#' - `file_name(category(NULL, extension)` - file name
-#' - `file_extension(category)` - file extension
-#' - `file_path(depth(1, category(NULL, extension)` - file path
-#'
-#' @format NULL
-#' @usage NULL
 #' @examples
 #' (x <- FileProvider$new())
 #' x$locale
@@ -28,13 +16,22 @@ FileProvider <- R6::R6Class(
   inherit = BaseProvider,
   'FileProvider',
   public = list(
+    #' @field locale (character) the locale
     locale = NULL,
+
+    #' @description fetch the allowed locales for this provider
+    allowed_locales = function() private$locales,
+
+    #' @description Create a new `FileProvider` object
+    #' @param locale (character) the locale to use. See
+    #' `$allowed_locales()` for locales supported (default: en_US)
+    #' @return A new `FileProvider` object
     initialize = function(locale = NULL) {
       if (!is.null(locale)) {
         # check global locales
         super$check_locale(locale)
         # check person provider locales
-        check_locale_(locale, file_provider_locales)
+        check_locale_(locale, private$locales)
         self$locale <- locale
       } else {
         self$locale <- 'en_US'
@@ -60,6 +57,10 @@ FileProvider <- R6::R6Class(
       )
     },
 
+    #' @description a random mime type
+    #' @param category (character) a mime type category of mime types, one
+    #' of application, audio, image, message, model, multipart, text or
+    #' video. default: `NULL`
     mime_type = function(category = NULL) {
       category <- if (!is.null(category)) {
         category
@@ -69,14 +70,21 @@ FileProvider <- R6::R6Class(
       return(super$random_element(private$mime_types[[category]]))
     },
 
+    #' @description a random file name
+    #' @param category (character) a category of file extension type, one of
+    #' audio, image, office, text or video. default: `NULL`. If this is 
+    #' given, `extension` is ignored
+    #' @param extension (character) a file extension. if this is given,
+    #' `category` is ignored.
     file_name = function(category = NULL, extension = NULL) {
-        # :param category: audio|image|office|text|video
-        # :param extension: file extension
         x = if (!is.null(extension)) extension else self$file_extension(category)
         filename = LoremProvider$new(locale = self$locale)$word()
         sprintf('%s.%s', filename, x)
     },
 
+    #' @description a random file extension
+    #' @param category (character) a category of file extension type, one of
+    #' audio, image, office, text or video. default: `NULL`
     file_extension = function(category = NULL) {
       category <- if (!is.null(category)) {
         category
@@ -86,10 +94,14 @@ FileProvider <- R6::R6Class(
       return(super$random_element(private$file_extensions[[category]]))
     },
 
+    #' @description a random file path
+    #' @param depth (character) depth of the file (depth >= 0). default: 1
+    #' @param category (character) a category of file extension type, one of
+    #' audio, image, office, text or video. default: `NULL`. If this is 
+    #' given, `extension` is ignored
+    #' @param extension (character) a file extension. if this is given,
+    #' `category` is ignored.
     file_path = function(depth = 1, category = NULL, extension = NULL) {
-      # :param category: audio|image|office|text|video
-      # :param extension: file extension
-      # :param depth: depth of the file (depth >= 0)
       file = self$file_name(category, extension)
       path = paste0("/", file)
       for (d in seq_len(depth)) {
@@ -265,10 +277,8 @@ FileProvider <- R6::R6Class(
         "pdf"  # Portable Document Format
     ),
 
-    file_extensions = NULL
+    file_extensions = NULL,
+
+    locales = c("en_US")
   )
 )
-
-#' @export
-#' @rdname FileProvider
-file_provider_locales <- c("en_US")

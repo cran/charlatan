@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Scott Chamberlain" />
 
-<meta name="date" content="2018-10-18" />
+<meta name="date" content="2020-01-23" />
 
-<title>Introduction to the charlatan package</title>
+<title>Contributing to charlatan</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -81,8 +81,6 @@ overflow: auto;
 margin-left: 2%;
 position: fixed;
 border: 1px solid #ccc;
-webkit-border-radius: 6px;
-moz-border-radius: 6px;
 border-radius: 6px;
 }
 
@@ -110,9 +108,14 @@ font-size: 12px;
 .tocify-subheader .tocify-subheader {
 text-indent: 30px;
 }
-
 .tocify-subheader .tocify-subheader .tocify-subheader {
 text-indent: 40px;
+}
+.tocify-subheader .tocify-subheader .tocify-subheader .tocify-subheader {
+text-indent: 50px;
+}
+.tocify-subheader .tocify-subheader .tocify-subheader .tocify-subheader .tocify-subheader {
+text-indent: 60px;
 }
 
 .tocify .tocify-item > a, .tocify .nav-list .nav-header {
@@ -516,13 +519,13 @@ float: none;
 
           item.append($("<a/>", {
 
-            "text": self.text()
+            "html": self.html()
 
           }));
 
         } else {
 
-          item.text(self.text());
+          item.html(self.html());
 
         }
 
@@ -1339,9 +1342,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1355,7 +1356,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1366,50 +1366,73 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -1423,6 +1446,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -1458,8 +1487,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -1468,6 +1495,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -1485,202 +1522,169 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to the charlatan package</h1>
-<h4 class="author"><em>Scott Chamberlain</em></h4>
-<h4 class="date"><em>2018-10-18</em></h4>
+<h1 class="title toc-ignore">Contributing to charlatan</h1>
+<h4 class="author">Scott Chamberlain</h4>
+<h4 class="date">2020-01-23</h4>
 
 </div>
 
 
-<p><code>charlatan</code> makes fake data, inspired from and borrowing some code from Python’s <a href="https://github.com/joke2k/faker">faker</a></p>
-<p>Why would you want to make fake data? Here’s some possible use cases to give you a sense for what you can do with this package:</p>
+<p><code>charlatan</code> is a wee bit complex. This vignette aims to help you contribute to the package. For a general introduction on contributing to rOpenSci packages see our <a href="https://devguide.ropensci.org/contributingguide.html">Contributing guide</a>.</p>
+<p>Let’s start with some definitions.</p>
+<div id="definitions" class="section level2">
+<h2>Definitions</h2>
+<p>For the purposes of this package:</p>
 <ul>
-<li>Students in a classroom setting learning any task that needs a dataset.</li>
-<li>People doing simulations/modeling that need some fake data</li>
-<li>Generate fake dataset of users for a database before actual users exist</li>
-<li>Complete missing spots in a dataset</li>
-<li>Generate fake data to replace sensitive real data with before public release</li>
-<li>Create a random set of colors for visualization</li>
-<li>Generate random coordinates for a map</li>
-<li>Get a set of randomly generated DOIs (Digial Object Identifiers) to assign to fake scholarly artifacts</li>
-<li>Generate fake taxonomic names for a biological dataset</li>
-<li>Get a set of fake sequences to use to test code/software that uses sequence data</li>
+<li><strong>Provider</strong>: a type of data that can be generated in <code>charlatan</code>. For example, we have providers for phone numbers, addresses and people’s names. Adding a provider may involve a single file, more than one file; and a single R6 class or many R6 classes.</li>
+<li><strong>Locale</strong>: a locale for our purposes is a specific spoken language that’s associated with a specific country. You can have more than one locale for a given language (e.g., <code>en-US</code>, <code>en-GB</code>). Some fakers won’t have any locales, whereas others can have many.</li>
 </ul>
-<div id="package-api" class="section level2">
-<h2>Package API</h2>
+<p>If you aren’t familiar with R6, have a look at the <a href="https://r6.r-lib.org/">R6 website</a>, in particular the <a href="https://r6.r-lib.org/articles/Introduction.html">introductory vignette</a>.</p>
+</div>
+<div id="communication" class="section level2">
+<h2>Communication</h2>
+<p>Open an issue if you want to add a new provider or locale to an existing provider; it helps make sure there’s no duplicated effort and we can help make sure you have the knowledge you need.</p>
+</div>
+<div id="adding-a-new-provider" class="section level2">
+<h2>Adding a new provider</h2>
+<p>Providers are generally first created by making an R6 class. Let’s start with a heavily simplified base R6 class that defines some utility methods. We call it <code>BaseProvider</code> in <code>charlatan</code>, but here we’ll call it <code>MyBaseProvider</code> to avoid confusion.</p>
+<pre class="r"><code>library(R6)
+MyBaseProvider &lt;- R6::R6Class(
+  &#39;MyBaseProvider&#39;,
+  public = list(
+    random_element = function(x) {
+      if (length(x) == 0) return(&#39;&#39;)
+      if (inherits(x, &quot;character&quot;)) if (!any(nzchar(x))) return(&#39;&#39;)
+      x[sample.int(n = length(x), size = 1)]
+    },
+
+    random_int = function(min = 0, max = 9999, size = 1) {
+      stopifnot(max &gt;= min)
+      num &lt;- max - min + 1
+      sample.int(n = num, size = size, replace = TRUE) + (min - 1)
+    }
+  )
+)</code></pre>
+<div id="providers-without-locale-support" class="section level3">
+<h3>Providers without locale support</h3>
+<p>If you don’t need to handle locales it becomes simpler:</p>
+<pre class="r"><code>FooBar &lt;- R6::R6Class(
+  &#39;FooBar&#39;,
+  inherit = charlatan::BaseProvider,
+  public = list(
+    integer = function(n = 1, min = 1, max = 1000) {
+      super$random_int(min, max, n)
+    }
+  )
+)</code></pre>
+<p>We can create an instance of the <code>FooBar</code> class by calling <code>$new()</code> on it. It only has one method <code>integer()</code>, which we can call to get a random integer.</p>
+<pre class="r"><code>x &lt;- FooBar$new()
+x
+#&gt; &lt;FooBar&gt;
+#&gt;   Inherits from: &lt;BaseProvider&gt;
+#&gt;   Public:
+#&gt;     bothify: function (text = &quot;## ??&quot;) 
+#&gt;     check_locale: function (x) 
+#&gt;     clone: function (deep = FALSE) 
+#&gt;     integer: function (n = 1, min = 1, max = 1000) 
+#&gt;     lexify: function (text = &quot;????&quot;) 
+#&gt;     numerify: function (text = &quot;###&quot;) 
+#&gt;     random_digit: function () 
+#&gt;     random_digit_not_zero: function () 
+#&gt;     random_digit_not_zero_or_empty: function () 
+#&gt;     random_digit_or_empty: function () 
+#&gt;     random_element: function (x) 
+#&gt;     random_element_prob: function (x) 
+#&gt;     random_int: function (min = 0, max = 9999, size = 1) 
+#&gt;     random_letter: function () 
+#&gt;     randomize_nb_elements: function (number = 10, le = FALSE, ge = FALSE, min = NULL, max = NULL)
+x$integer()
+#&gt; [1] 40</code></pre>
+</div>
+<div id="providers-with-locale-support" class="section level3">
+<h3>Providers with locale support</h3>
+<p>If your provider will need to handle different locales, it gets a bit more complex. In the Python library <a href="https://github.com/joke2k/faker">faker</a> from which this package draws inspiration, you can create separate folders for each provider within the Python library.</p>
+<p>However, R doesn’t allow this, so instead we categorize different locales for each provider within the file names. For example, for the address provider we have files in the package:</p>
 <ul>
-<li>Low level interfaces: All of these are <code>R6</code> objects that a user can initialize and then call methods on. These contain all the logic that the below interfaces use.</li>
-<li>High level interfaces: There are high level functions prefixed with <code>ch_*()</code> that wrap low level interfaces, and are meant to be easier to use and provide an easy way to make many instances of a thing.</li>
-<li><code>ch_generate()</code> - generate a data.frame with fake data, choosing which columns to include from the data types provided in <code>charlatan</code></li>
-<li><code>fraudster()</code> - single interface to all fake data methods, - returns vectors/lists of data - this function wraps the <code>ch_*()</code> functions described above</li>
+<li><a href="https://github.com/ropensci/charlatan/blob/master/R/address-provider.R">address-provider.R</a></li>
+<li><a href="https://github.com/ropensci/charlatan/blob/master/R/address-provider-en_US.R">address-provider-en_US.R</a></li>
+<li><a href="https://github.com/ropensci/charlatan/blob/master/R/address-provider-en_GB.R">address-provider-en_GB.R</a></li>
 </ul>
-</div>
-<div id="install" class="section level2">
-<h2>Install</h2>
-<p>Stable version from CRAN</p>
-<pre class="r"><code>install.packages(&quot;charlatan&quot;)</code></pre>
-<p>Development version from Github</p>
-<pre class="r"><code>devtools::install_github(&quot;ropensci/charlatan&quot;)</code></pre>
-<pre class="r"><code>library(&quot;charlatan&quot;)</code></pre>
-</div>
-<div id="high-level-function" class="section level2">
-<h2>high level function</h2>
-<p>… for all fake data operations</p>
-<pre class="r"><code>x &lt;- fraudster()
-x$job()
-#&gt; [1] &quot;Chief Technology Officer&quot;
-x$name()
-#&gt; [1] &quot;Gottlieb Greenfelder&quot;
-x$job()
-#&gt; [1] &quot;Scientist, product/process development&quot;
-x$color_name()
-#&gt; [1] &quot;DarkViolet&quot;</code></pre>
-</div>
-<div id="locale-support" class="section level2">
-<h2>locale support</h2>
-<p>Adding more locales through time, e.g.,</p>
-<p>Locale support for job data</p>
-<pre class="r"><code>ch_job(locale = &quot;en_US&quot;, n = 3)
-#&gt; [1] &quot;Housing manager/officer&quot; &quot;Theme park manager&quot;     
-#&gt; [3] &quot;Office manager&quot;
-ch_job(locale = &quot;fr_FR&quot;, n = 3)
-#&gt; [1] &quot;Auxiliaire spécialisé vétérinaire&quot; &quot;Économe de flux&quot;                  
-#&gt; [3] &quot;Bottier&quot;
-ch_job(locale = &quot;hr_HR&quot;, n = 3)
-#&gt; [1] &quot;Klobučar&quot;          &quot;Graditelj brodova&quot; &quot;Pismoslikar&quot;
-ch_job(locale = &quot;uk_UA&quot;, n = 3)
-#&gt; [1] &quot;Програміст&quot; &quot;Професор&quot;   &quot;Дерун&quot;
-ch_job(locale = &quot;zh_TW&quot;, n = 3)
-#&gt; [1] &quot;農藝／畜產研究人員&quot;  &quot;軟體專案管理師&quot;      &quot;系統整合／ERP專案師&quot;</code></pre>
-<p>For colors:</p>
-<pre class="r"><code>ch_color_name(locale = &quot;en_US&quot;, n = 3)
-#&gt; [1] &quot;SandyBrown&quot;    &quot;DarkSlateGray&quot; &quot;PowderBlue&quot;
-ch_color_name(locale = &quot;uk_UA&quot;, n = 3)
-#&gt; [1] &quot;Лимонно-кремовий&quot;       &quot;Блідо-каштановий&quot;      
-#&gt; [3] &quot;Помаранчево-персиковий&quot;</code></pre>
-<p>More coming soon …</p>
-</div>
-<div id="generate-a-dataset" class="section level2">
-<h2>generate a dataset</h2>
-<pre class="r"><code>ch_generate()
-#&gt; # A tibble: 10 x 3
-#&gt;    name                job                               phone_number      
-#&gt;    &lt;chr&gt;               &lt;chr&gt;                             &lt;chr&gt;             
-#&gt;  1 Kassie Leffler      Ecologist                         490.780.0864      
-#&gt;  2 Tierra Watsica      Insurance account manager         (452)316-8793x9081
-#&gt;  3 Debbi Harber        Engineer, chemical                1-301-135-5169x984
-#&gt;  4 Jeramie Walter      Editorial assistant               (665)154-2744x2274
-#&gt;  5 Rickie Morissette   Restaurant manager                1-329-085-4956    
-#&gt;  6 Julio Farrell       Corporate treasurer               720-855-1751x2252 
-#&gt;  7 Sherie Gislason     Plant breeder/geneticist          767-335-0245      
-#&gt;  8 Lucinda Armstrong   Radiation protection practitioner 02079832938       
-#&gt;  9 Carrol Howe MD      Contracting civil engineer        +68(4)9165838423  
-#&gt; 10 Dr. Socorro Schmitt Designer, furniture               852-928-8670</code></pre>
-<pre class="r"><code>ch_generate(&#39;job&#39;, &#39;phone_number&#39;, n = 30)
-#&gt; # A tibble: 30 x 2
-#&gt;    job                                   phone_number      
-#&gt;    &lt;chr&gt;                                 &lt;chr&gt;             
-#&gt;  1 Legal secretary                       (606)596-6104     
-#&gt;  2 Emergency planning/management officer +99(0)0779574693  
-#&gt;  3 Food technologist                     07047666301       
-#&gt;  4 Quality manager                       936.390.4298      
-#&gt;  5 Economist                             +25(9)7508933600  
-#&gt;  6 Actor                                 (977)091-9322     
-#&gt;  7 Civil Service fast streamer           770.644.3003x529  
-#&gt;  8 Acupuncturist                         703-830-2719x354  
-#&gt;  9 Lobbyist                              (494)107-0538x3345
-#&gt; 10 Health promotion specialist           1-231-435-4566x864
-#&gt; # ... with 20 more rows</code></pre>
-</div>
-<div id="data-types" class="section level2">
-<h2>Data types</h2>
-<div id="person-name" class="section level3">
-<h3>person name</h3>
-<pre class="r"><code>ch_name()
-#&gt; [1] &quot;Eulalia Walker-Hand&quot;</code></pre>
-<pre class="r"><code>ch_name(10)
-#&gt;  [1] &quot;Lular Schulist&quot;        &quot;Miss Willie Mante DDS&quot;
-#&gt;  [3] &quot;Kole Price&quot;            &quot;Kinsey Hahn&quot;          
-#&gt;  [5] &quot;Lindy Hettinger&quot;       &quot;Myron Miller&quot;         
-#&gt;  [7] &quot;Clara O&#39;Kon-Bosco&quot;     &quot;Lakisha Murazik&quot;      
-#&gt;  [9] &quot;Ms. Aiyanna Ernser&quot;    &quot;Regenia Crooks&quot;</code></pre>
-</div>
-<div id="phone-number" class="section level3">
-<h3>phone number</h3>
-<pre class="r"><code>ch_phone_number()
-#&gt; [1] &quot;225-861-1056&quot;</code></pre>
-<pre class="r"><code>ch_phone_number(10)
-#&gt;  [1] &quot;(397)709-4341x8258&quot;   &quot;588-372-5015x37545&quot;   &quot;613-137-7911x883&quot;    
-#&gt;  [4] &quot;1-600-128-4597x99950&quot; &quot;670-069-8527x6732&quot;    &quot;658.651.4977x94270&quot;  
-#&gt;  [7] &quot;+46(6)3770984906&quot;     &quot;1-546-751-0949&quot;       &quot;(459)629-1280x4323&quot;  
-#&gt; [10] &quot;+20(2)7575786577&quot;</code></pre>
-</div>
-<div id="job" class="section level3">
-<h3>job</h3>
-<pre class="r"><code>ch_job()
-#&gt; [1] &quot;Contracting civil engineer&quot;</code></pre>
-<pre class="r"><code>ch_job(10)
-#&gt;  [1] &quot;Diplomatic Services operational officer&quot;
-#&gt;  [2] &quot;Exhibitions officer, museum/gallery&quot;    
-#&gt;  [3] &quot;Clinical psychologist&quot;                  
-#&gt;  [4] &quot;Interpreter&quot;                            
-#&gt;  [5] &quot;Electrical engineer&quot;                    
-#&gt;  [6] &quot;Sports coach&quot;                           
-#&gt;  [7] &quot;Radio broadcast assistant&quot;              
-#&gt;  [8] &quot;Museum/gallery exhibitions officer&quot;     
-#&gt;  [9] &quot;Broadcast engineer&quot;                     
-#&gt; [10] &quot;Personal assistant&quot;</code></pre>
-</div>
-<div id="credit-cards" class="section level3">
-<h3>credit cards</h3>
-<pre class="r"><code>ch_credit_card_provider()
-#&gt; [1] &quot;VISA 16 digit&quot;
-ch_credit_card_provider(n = 4)
-#&gt; [1] &quot;VISA 16 digit&quot; &quot;Mastercard&quot;    &quot;Mastercard&quot;    &quot;VISA 16 digit&quot;</code></pre>
-<pre class="r"><code>ch_credit_card_number()
-#&gt; [1] &quot;55102041677140379&quot;
-ch_credit_card_number(n = 10)
-#&gt;  [1] &quot;6011605711290457945&quot; &quot;3041537239690522&quot;    &quot;3112768344523864506&quot;
-#&gt;  [4] &quot;4486249701104&quot;       &quot;4253802266283&quot;       &quot;4992229219738163&quot;   
-#&gt;  [7] &quot;4672722860615828&quot;    &quot;4987676760612&quot;       &quot;4752221113018&quot;      
-#&gt; [10] &quot;3764355598669753&quot;</code></pre>
-<pre class="r"><code>ch_credit_card_security_code()
-#&gt; [1] &quot;711&quot;
-ch_credit_card_security_code(10)
-#&gt;  [1] &quot;395&quot; &quot;324&quot; &quot;582&quot; &quot;562&quot; &quot;227&quot; &quot;595&quot; &quot;574&quot; &quot;110&quot; &quot;050&quot; &quot;275&quot;</code></pre>
+<p>Where the latter two provides specific data for each locale, and the first file has the <code>AddressProvider</code> class that pulls in the locale specific data.</p>
+<p>Here, we’ll create a very simplified <code>AddressProvider</code> class using an example locale file.</p>
+<pre class="r"><code>library(charlatan)
+file &lt;- system.file(&quot;examples&quot;, &quot;address-provider-en_US.R&quot;, package = &quot;charlatan&quot;)
+source(file)
+MyAddressProvider &lt;- R6::R6Class(
+  inherit = MyBaseProvider,
+  &#39;MyAddressProvider&#39;,
+  lock_objects = FALSE,
+  public = list(
+    locale = NULL,
+    city_suffixes = NULL,
+
+    initialize = function() {
+      self$locale &lt;- &#39;en_us&#39;
+      self$city_suffixes &lt;-
+        eval(parse(text = paste0(&quot;city_suffixes_&quot;, self$locale)))
+    },
+
+    city_suffix = function() {
+      super$random_element(self$city_suffixes)
+    }
+  )
+)</code></pre>
+<p>We can create an instance of the <code>MyAddressProvider</code> class by calling <code>$new()</code> on it. It only has one method <code>city_suffix()</code>, which we can call to get a random city suffix.</p>
+<pre class="r"><code>x &lt;- MyAddressProvider$new()
+x
+#&gt; &lt;MyAddressProvider&gt;
+#&gt;   Inherits from: &lt;MyBaseProvider&gt;
+#&gt;   Public:
+#&gt;     city_suffix: function () 
+#&gt;     city_suffixes: town ton land ville berg burgh borough bury view port mo ...
+#&gt;     clone: function (deep = FALSE) 
+#&gt;     initialize: function () 
+#&gt;     locale: en_us
+#&gt;     random_element: function (x) 
+#&gt;     random_int: function (min = 0, max = 9999, size = 1)
+x$city_suffix()
+#&gt; [1] &quot;bury&quot;</code></pre>
+<div id="adding-a-new-locale" class="section level4">
+<h4>Adding a new locale</h4>
+<p>When you want to add a new locale to an existing provider, look in the <code>R/</code> folder of the package and the locales that are available are in the file names.</p>
+<p>Pick one of the locale files for the provider you’re extending, make a duplicate of it and rename the file with your new locale. Then modify the duplicate, copying the format but putting in place the appropriate information for the new locale.</p>
+<p>Where the data comes from for the new locale may vary. One easy way to start may be porting over locales in the <a href="https://github.com/joke2k/faker">faker</a> Python library that are not yet in <code>charlatan</code>.</p>
+<p>If it’s a locale for which you can’t easily port over from another library, you need to get the data from a variety of sources. There are some R based packages that should help:</p>
+<ul>
+<li><a href="https://cran.r-project.org/package=WikidataR">WikidataR</a></li>
+<li><a href="https://github.com/Ironholds/humaniformat">humaniformat</a></li>
+<li><a href="https://cran.r-project.org/package=WikidataQueryServiceR">WikidataQueryServiceR</a></li>
+</ul>
+<p>Keep in mind when using data to look at their license, if any, and any implications with respect to whether it can be used in this package.</p>
 </div>
 </div>
-<div id="messy-data" class="section level2">
-<h2>Messy data</h2>
-<p>Real data is messy, right? <code>charlatan</code> makes it easy to create messy data. This is still in the early stages so is not available across most data types and languages, but we’re working on it.</p>
-<p>For example, create messy names:</p>
-<pre class="r"><code>ch_name(50, messy = TRUE)
-#&gt;  [1] &quot;Cason Hagenes&quot;               &quot;Angela Cassin&quot;              
-#&gt;  [3] &quot;Drew Ritchie&quot;                &quot;Math Bergnaum&quot;              
-#&gt;  [5] &quot;Wash Brown&quot;                  &quot;Ransom Green-Keebler&quot;       
-#&gt;  [7] &quot;Elick Boyer DDS&quot;             &quot;Joretta Hirthe&quot;             
-#&gt;  [9] &quot;Dr Solon Schneider&quot;          &quot;Jaden D&#39;Amore&quot;              
-#&gt; [11] &quot;Delmas Schmidt&quot;              &quot;Ramiro Howell-Goldner&quot;      
-#&gt; [13] &quot;Margarett Pouros DVM&quot;        &quot;Una McClure&quot;                
-#&gt; [15] &quot;Miracle Yost m.d.&quot;           &quot;Dr Beaulah Vandervort Ph.D.&quot;
-#&gt; [17] &quot;Yadira Grimes&quot;               &quot;Holland Koch&quot;               
-#&gt; [19] &quot;Migdalia Flatley&quot;            &quot;Miss Ferne Haag&quot;            
-#&gt; [21] &quot;Dr Chelsi Jaskolski&quot;         &quot;Maryanne Heaney&quot;            
-#&gt; [23] &quot;Gerold Klein&quot;                &quot;Dr. Stephon Kreiger&quot;        
-#&gt; [25] &quot;Lydell Abernathy Sr.&quot;        &quot;Ms Della Gulgowski&quot;         
-#&gt; [27] &quot;Boyd Quitzon&quot;                &quot;Jerald Kerluke&quot;             
-#&gt; [29] &quot;Dr Domenick Mills&quot;           &quot;Dr. Thurlow Connelly&quot;       
-#&gt; [31] &quot;Raheem Robel&quot;                &quot;Britney O&#39;Keefe-Greenholt&quot;  
-#&gt; [33] &quot;Kacey Hane&quot;                  &quot;Germaine Feeney&quot;            
-#&gt; [35] &quot;Myrta Rosenbaum&quot;             &quot;Dequan Sawayn&quot;              
-#&gt; [37] &quot;Harvie Crona&quot;                &quot;Adelyn Feest-Wehner&quot;        
-#&gt; [39] &quot;Corda Jerde&quot;                 &quot;Savon Armstrong&quot;            
-#&gt; [41] &quot;Summer Cartwright&quot;           &quot;Chyna Stehr-Schiller&quot;       
-#&gt; [43] &quot;Levie Torphy&quot;                &quot;Anne Tillman&quot;               
-#&gt; [45] &quot;Nana Abbott&quot;                 &quot;Dr. Neta Funk&quot;              
-#&gt; [47] &quot;Dr. Vance Stracke&quot;           &quot;Love Bogan&quot;                 
-#&gt; [49] &quot;Laquita Bartell&quot;             &quot;Nikolas Block-Beatty&quot;</code></pre>
-<p>Right now only suffixes and prefixes for names in <code>en_US</code> locale are supported. Notice above some variation in prefixes and suffixes.</p>
+</div>
+<div id="how-locale-specific-data-are-used-in-providers" class="section level2">
+<h2>How locale specific data are used in providers</h2>
+<p>It’s a little tricky how this is done. In the <code>initialize()</code> block of each main provider file (e.g., <code>address-provider.R</code>) we pull in the appropriate locale specific data based on the user input locale. For example, here’s an abbreviated <code>initialize</code> block from the <code>AddressProvider</code>:</p>
+<pre class="r"><code>initialize = function(locale = NULL) {
+  if (!is.null(locale)) {
+    # check global locales
+    super$check_locale(locale)
+    # check address provider locales
+    check_locale_(locale, address_provider_locales)
+    self$locale &lt;- locale
+  } else {
+    self$locale &lt;- &#39;en_US&#39;
+  }
+
+  self$city_prefixes &lt;- parse_eval(&quot;city_prefixes_&quot;, self$locale)
+}</code></pre>
+<p>A few things to note:</p>
+<ul>
+<li>if no locale is given, we by default use <code>en_US</code></li>
+<li>we check that the locale given is in the allowed set</li>
+<li>for each data type, here just city prefixes shown, use the internal function <code>parse_eval()</code> to pull in the data. Essentially, <code>parse_eval()</code> makes the string <code>city_prefixes_en_US</code>, then finds that in the package environment and <code>eval()</code>’s it to bring the data into the R6 object in the <code>city_prefixes</code> slot. We repeat this for each data type. The result is the user initialized class with locale specific data.</li>
+</ul>
 </div>
 
 
@@ -1701,6 +1705,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

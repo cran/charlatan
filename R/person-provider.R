@@ -1,35 +1,11 @@
-#' PersonProvider
-#'
+#' @title PersonProvider
+#' @description person names methods
 #' @export
 #' @keywords internal
-#' @param locale (character) the locale to use. See
-#' `person_provider_locales` for locales supported (default: en_US)
-#' @param messy (logical) make some messy data. Default: `FALSE`
-#' @details
-#' **Methods**
-#'
-#' - `render(fmt)` - Make a person's name
-#' - `first_name()` -  get a first name
-#' - `first_name_female()` - get a female first name
-#' - `first_name_male()` - get a male first namne
-#' - `last_name()` - get a last name
-#' - `last_name_female()` - get a female last name
-#' - `last_name_male()` - get a male last name
-#' - `prefix()` - get a name prefix
-#' - `prefix_female()` - get a female name prefix
-#' - `prefix_male()` - get a male name prefix
-#' - `suffix()` - get a name suffix
-#' - `suffix_female()` - get a female name suffix
-#' - `suffix_male()` - get a male name suffix
-#'
-#' @format NULL
-#' @usage NULL
-#'
 #' @details Note that with the male/female versions if the locale
 #' doesn't provide a male/female version then we fall back to the
 #' generic thing, e.g., if no female first name we give you first
 #' name
-#'
 #' @examples
 #' x <- PersonProvider$new()
 #' x$locale
@@ -88,6 +64,14 @@
 #' z$first_name_male()
 #' z$last_name()
 #' z$prefix()
+#' 
+#' z <- PersonProvider$new(locale = "en_NZ")
+#' z$locale
+#' z$render()
+#' z$first_name()
+#' z$first_name_female()
+#' z$first_name_male()
+#' z$last_name()
 #'
 #' PersonProvider$new(locale = "fr_CH")$render()
 #' PersonProvider$new(locale = "fi_FI")$render()
@@ -102,11 +86,23 @@ PersonProvider <- R6::R6Class(
   'PersonProvider',
   inherit = BaseProvider,
   public = list(
+    #' @field locale (character) the locale
     locale = NULL,
+    #' @field formats (character) person name formats
     formats = person_formats_en_us,
+    #' @field person (character) person name data
     person = person_en_us,
+    #' @field messy (logical) the messy setting, `TRUE` or `FALSE`
     messy = FALSE,
 
+    #' @description fetch the allowed locales for this provider
+    allowed_locales = function() private$locales,
+
+    #' @description Create a new `PersonProvider` object
+    #' @param locale (character) the locale to use. See
+    #' `$allowed_locales()` for locales supported (default: en_US)
+    #' @param messy (logical) make some messy data. Default: `FALSE`
+    #' @return A new `PersonProvider` object
     initialize = function(locale = NULL, messy = FALSE) {
       self$messy <- if (!is.null(charlatan_settings_env$global_messy)) {
         assert(charlatan_settings_env$global_messy, "logical")
@@ -119,7 +115,7 @@ PersonProvider <- R6::R6Class(
         # check global locales
         super$check_locale(locale)
         # check person provider locales
-        check_locale_(locale, person_provider_locales)
+        check_locale_(locale, private$locales)
         self$locale <- locale
       } else {
         self$locale <- 'en_US'
@@ -128,6 +124,8 @@ PersonProvider <- R6::R6Class(
       self$person <- parse_eval("person_", self$locale, self$messy)
     },
 
+    #' @description Make a person's name
+    #' @param fmt (character) a name format, default: `NULL`
     render = function(fmt = NULL) {
       if (is.null(fmt)) fmt <- super$random_element(self$formats)
       dat <- lapply(
@@ -153,28 +151,42 @@ PersonProvider <- R6::R6Class(
       whisker::whisker.render(fmt, data = dat)
     },
 
-
+    #' @description make a first name
     first_name = function() {
-      super$random_element(self$person$first_names)
+      if (has_probs(self$person$first_names)) {
+        super$random_element_prob(self$person$first_names)
+      } else {
+        super$random_element(self$person$first_names)
+      }
     },
 
+    #' @description make a female first name
     first_name_female = function() {
       if ("first_names_female" %in% names(self$person)) {
-        super$random_element(self$person$first_names_female)
+        if (has_probs(self$person$first_names_female)) {
+          super$random_element_prob(self$person$first_names_female)
+        } else {
+          super$random_element(self$person$first_names_female)
+        }
       } else {
-        super$random_element(self$person$first_names)
+        self$first_name()
       }
     },
 
+    #' @description make a male first name
     first_name_male = function() {
       if ("first_names_male" %in% names(self$person)) {
-        super$random_element(self$person$first_names_male)
+        if (has_probs(self$person$first_names_male)) {
+          super$random_element_prob(self$person$first_names_male)
+        } else {
+          super$random_element(self$person$first_names_male)
+        }
       } else {
-        super$random_element(self$person$first_names)
+        self$first_name()
       }
     },
 
-
+    #' @description make a last name
     last_name = function() {
       if ("last_names" %in% names(self$person)) {
         if (has_probs(self$person$last_names)) {
@@ -193,6 +205,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
+    #' @description make a female last name
     last_name_female = function() {
       if ("last_names_female" %in% names(self$person)) {
         if (has_probs(self$person$last_names_female)) {
@@ -205,6 +218,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
+    #' @description make a male last name
     last_name_male = function() {
       if ("last_names_male" %in% names(self$person)) {
         if (has_probs(self$person$last_names_male)) {
@@ -217,7 +231,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
-
+    #' @description make a name prefix
     prefix = function() {
       if (any(c("prefixes_male", "prefixes_female") %in% names(self$person))) {
         super$random_element(c(self$person$prefixes_male,
@@ -227,6 +241,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
+    #' @description make a female name prefix
     prefix_female = function() {
       if ("prefixes_female" %in% names(self$person)) {
         super$random_element(self$person$prefixes_female)
@@ -235,6 +250,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
+    #' @description make a male name prefix
     prefix_male = function() {
       if ("prefixes_male" %in% names(self$person)) {
         super$random_element(self$person$prefixes_male)
@@ -243,7 +259,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
-
+    #' @description make a name suffix
     suffix = function() {
       if (any(c("suffixes_male", "suffixes_female") %in% names(self$person))) {
         super$random_element(c(self$person$suffixes_male,
@@ -253,6 +269,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
+    #' @description make a female name suffix
     suffix_female = function() {
       if ("suffixes_female" %in% names(self$person)) {
         super$random_element(self$person$suffixes_female)
@@ -261,6 +278,7 @@ PersonProvider <- R6::R6Class(
       }
     },
 
+    #' @description make a male name suffix
     suffix_male = function() {
       if ("suffixes_male" %in% names(self$person)) {
         super$random_element(self$person$suffixes_male)
@@ -269,14 +287,14 @@ PersonProvider <- R6::R6Class(
       }
     }
 
-  )
-)
+  ),
 
-#' @export
-#' @rdname PersonProvider
-person_provider_locales <- c(
-  "bg_BG", "fr_FR", "es_ES", "en_US", "fa_IR", "da_DK",
-  "cs_CZ", "de_DE", "fr_CH", "de_AT", "fi_FI", "es_MX",
-  "en_GB", "hr_HR", "it_IT", "lv_LV", "ko_KR", "lt_LT",
-  "ne_NP", "nl_NL", "no_NO", "pl_PL"
+  private = list(
+    locales = c(
+      "bg_BG", "fr_FR", "es_ES", "en_US", "fa_IR", "da_DK",
+      "cs_CZ", "de_DE", "fr_CH", "de_AT", "fi_FI", "es_MX",
+      "en_GB", "hr_HR", "it_IT", "lv_LV", "ko_KR", "lt_LT",
+      "ne_NP", "nl_NL", "no_NO", "pl_PL", "en_NZ"
+    )
+  )
 )

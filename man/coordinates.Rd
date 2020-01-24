@@ -16,7 +16,7 @@ ch_position(n = 1, bbox = NULL)
 \arguments{
 \item{n}{(integer) number of things to get, any non-negative integer}
 
-\item{bbox}{a bounding box of the form \code{[w,s,e,n]}}
+\item{bbox}{a bounding box of the form \verb{[w,s,e,n]}}
 }
 \description{
 Create fake coordinates
@@ -31,4 +31,7 @@ ch_lat(10)
 ch_position()
 ch_position(10)
 ch_position(bbox = c(-120, 30, -110, 60))
+}
+\seealso{
+\link{CoordinateProvider}
 }
