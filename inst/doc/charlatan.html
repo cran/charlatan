@@ -11,7 +11,7 @@
 
 <meta name="author" content="Scott Chamberlain" />
 
-<meta name="date" content="2022-08-17" />
+<meta name="date" content="2023-09-12" />
 
 <title>Introduction to the charlatan package</title>
 
@@ -1385,23 +1385,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -1505,7 +1499,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Introduction to the charlatan package</h1>
 <h4 class="author">Scott Chamberlain</h4>
-<h4 class="date">2022-08-17</h4>
+<h4 class="date">2023-09-12</h4>
 
 </div>
 
@@ -1567,126 +1561,119 @@ methods, - returns vectors/lists of data - this function wraps the
 <p>… for all fake data operations</p>
 <pre class="r"><code>x &lt;- fraudster()
 x$job()
-#&gt; [1] &quot;Exercise physiologist&quot;
+#&gt; [1] &quot;Therapist, art&quot;
 x$name()
-#&gt; [1] &quot;Mahalie Volkman&quot;
+#&gt; [1] &quot;Davion Murazik&quot;
 x$job()
-#&gt; [1] &quot;Pharmacist, hospital&quot;
+#&gt; [1] &quot;TEFL teacher&quot;
 x$color_name()
-#&gt; [1] &quot;Salmon&quot;</code></pre>
+#&gt; [1] &quot;LemonChiffon&quot;</code></pre>
 </div>
 <div id="locale-support" class="section level2">
 <h2>locale support</h2>
 <p>Adding more locales through time, e.g.,</p>
 <p>Locale support for job data</p>
 <pre class="r"><code>ch_job(locale = &quot;en_US&quot;, n = 3)
-#&gt; [1] &quot;Comptroller&quot;                 &quot;Applications developer&quot;     
-#&gt; [3] &quot;Conservator, museum/gallery&quot;
+#&gt; [1] &quot;Counsellor&quot;       &quot;Ecologist&quot;        &quot;Financial trader&quot;
 ch_job(locale = &quot;fr_FR&quot;, n = 3)
-#&gt; [1] &quot;Conseiller en fusion-acquisition&quot; &quot;Technicien automobile&quot;           
-#&gt; [3] &quot;Économe de flux&quot;
+#&gt; [1] &quot;Magasinier cariste&quot; &quot;Psychomotricien&quot;    &quot;Animateur nature&quot;
 ch_job(locale = &quot;hr_HR&quot;, n = 3)
-#&gt; [1] &quot;Revident&quot;                        &quot;Dentalni asistent&quot;              
-#&gt; [3] &quot;Inženjer medicinske radiologije&quot;
+#&gt; [1] &quot;Glavni inspektor zaštite okoliša&quot; &quot;Pregledač vagona&quot;                
+#&gt; [3] &quot;Ovlašteni revizor&quot;
 ch_job(locale = &quot;uk_UA&quot;, n = 3)
-#&gt; [1] &quot;Астроном&quot;   &quot;Антрополог&quot; &quot;Ріелтор&quot;
+#&gt; [1] &quot;Машиніст&quot; &quot;Психолог&quot; &quot;Прокурор&quot;
 ch_job(locale = &quot;zh_TW&quot;, n = 3)
-#&gt; [1] &quot;排版人員&quot;           &quot;英文翻譯／口譯人員&quot; &quot;染整技術人員&quot;</code></pre>
+#&gt; [1] &quot;鐵路車輛駕駛員&quot;   &quot;化學工程研發人員&quot; &quot;硬體測試工程師&quot;</code></pre>
 <p>For colors:</p>
 <pre class="r"><code>ch_color_name(locale = &quot;en_US&quot;, n = 3)
-#&gt; [1] &quot;DarkSeaGreen&quot;  &quot;Violet&quot;        &quot;DarkSlateGray&quot;
+#&gt; [1] &quot;DarkOrange&quot;    &quot;BurlyWood&quot;     &quot;PaleGoldenRod&quot;
 ch_color_name(locale = &quot;uk_UA&quot;, n = 3)
-#&gt; [1] &quot;Дерева&quot;         &quot;Темно-лазурний&quot; &quot;Зелений&quot;</code></pre>
+#&gt; [1] &quot;Грушевий&quot;        &quot;Фіолетовий&quot;      &quot;Темно-брунатний&quot;</code></pre>
 <p>More coming soon …</p>
 </div>
 <div id="generate-a-dataset" class="section level2">
 <h2>generate a dataset</h2>
 <pre class="r"><code>ch_generate()
 #&gt; # A tibble: 10 × 3
-#&gt;    name                     job                                    phone_number 
-#&gt;    &lt;chr&gt;                    &lt;chr&gt;                                  &lt;chr&gt;        
-#&gt;  1 Shona Howell             Tax adviser                            (297)747-155…
-#&gt;  2 Missouri Hoppe-Gerlach   Dispensing optician                    657-442-1745…
-#&gt;  3 Miss Exa Lindgren DVM    Surveyor, insurance                    1-393-703-89…
-#&gt;  4 Marilou Hilll            Civil Service administrator            03436190752  
-#&gt;  5 Mr. Hoke Hansen          Teacher, adult education               816.530.1379 
-#&gt;  6 Ms. Violeta Ebert        Psychiatric nurse                      577-572-9397…
-#&gt;  7 Kieth Kiehn IV           Teacher, English as a foreign language 030-742-7026…
-#&gt;  8 Mikaila Wintheiser-Bruen Museum/gallery conservator             (305)030-717…
-#&gt;  9 Baylie Armstrong         Recruitment consultant                 178.968.3856…
-#&gt; 10 Gerard Quigley Jr.       Airline pilot                          765.313.3182</code></pre>
-<pre class="r"><code>ch_generate(&#39;job&#39;, &#39;phone_number&#39;, n = 30)
+#&gt;    name                     job                             phone_number        
+#&gt;    &lt;chr&gt;                    &lt;chr&gt;                           &lt;chr&gt;               
+#&gt;  1 Kittie Bayer             Accountant, chartered           790.477.8132x020    
+#&gt;  2 Geraldo Zulauf           Commissioning editor            +68(7)2415815539    
+#&gt;  3 Adelard Hegmann          Psychologist, clinical          001.148.3692x348    
+#&gt;  4 Cleola Hettinger         Restaurant manager, fast food   09506901409         
+#&gt;  5 Mrs. Nathalia Zulauf     Equality and diversity officer  +75(1)4803864411    
+#&gt;  6 Edw Braun                Geophysicist/field seismologist 755.845.0201x0508   
+#&gt;  7 Miss Jaunita Effertz PhD Retail manager                  767.075.3022x81938  
+#&gt;  8 Nancy Konopelski         Administrator, local government 1-772-466-7294x67130
+#&gt;  9 Coleman Rosenbaum-Schoen Diagnostic radiographer         1-010-738-7626      
+#&gt; 10 Mrs. Gwenda Powlowski MD Race relations officer          1-879-063-1092x075</code></pre>
+<pre class="r"><code>ch_generate(&quot;job&quot;, &quot;phone_number&quot;, n = 30)
 #&gt; # A tibble: 30 × 2
-#&gt;    job                                          phone_number       
-#&gt;    &lt;chr&gt;                                        &lt;chr&gt;              
-#&gt;  1 Paramedic                                    916.806.7738       
-#&gt;  2 Engineer, electronics                        1-558-738-5481x4670
-#&gt;  3 Education officer, environmental             1-777-390-2418x927 
-#&gt;  4 Production designer, theatre/television/film 177.776.3900       
-#&gt;  5 Marine scientist                             06918434812        
-#&gt;  6 Control and instrumentation engineer         089-980-1061x5075  
-#&gt;  7 Licensed conveyancer                         082.027.2276x7008  
-#&gt;  8 Operational researcher                       134.883.0475x1393  
-#&gt;  9 Management consultant                        844-455-4954x0276  
-#&gt; 10 Optometrist                                  264.670.0122x820   
-#&gt; # … with 20 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows</code></pre>
+#&gt;    job                          phone_number      
+#&gt;    &lt;chr&gt;                        &lt;chr&gt;             
+#&gt;  1 Analytical chemist           (920)534-8748     
+#&gt;  2 Civil Service fast streamer  +77(3)6668585195  
+#&gt;  3 Records manager              763-920-4265x808  
+#&gt;  4 Warehouse manager            848-525-1824x02934
+#&gt;  5 Community arts worker        (604)257-5008x903 
+#&gt;  6 Education officer, community 575-747-2541x31955
+#&gt;  7 Probation officer            813.941.1881x1840 
+#&gt;  8 Curator                      157-567-8891x6362 
+#&gt;  9 Physiotherapist              813.191.2143x0886 
+#&gt; 10 Volunteer coordinator        (078)547-6492     
+#&gt; # ℹ 20 more rows</code></pre>
 </div>
 <div id="data-types" class="section level2">
 <h2>Data types</h2>
 <div id="person-name" class="section level3">
 <h3>person name</h3>
 <pre class="r"><code>ch_name()
-#&gt; [1] &quot;Akeem Schaden&quot;</code></pre>
+#&gt; [1] &quot;Kenny Friesen&quot;</code></pre>
 <pre class="r"><code>ch_name(10)
-#&gt;  [1] &quot;Allen Littel&quot;          &quot;Dr. Yadira Mosciski&quot;   &quot;Ms. Teela Rath&quot;       
-#&gt;  [4] &quot;Griselda Macejkovic&quot;   &quot;Loula Moen&quot;            &quot;Geri Hermiston&quot;       
-#&gt;  [7] &quot;Latrice Mueller-Purdy&quot; &quot;Bessie Greenfelder&quot;    &quot;Brittnay Beahan&quot;      
-#&gt; [10] &quot;Marely Harvey-Haag&quot;</code></pre>
+#&gt;  [1] &quot;Pleasant Adams&quot;           &quot;Mr. Milford Gorczany PhD&quot;
+#&gt;  [3] &quot;Deegan Towne&quot;             &quot;Chaim Heathcote&quot;         
+#&gt;  [5] &quot;Ephram Bode-Heaney&quot;       &quot;Orlo Bernhard&quot;           
+#&gt;  [7] &quot;Gauge Feest&quot;              &quot;Dr. Marcelino Tromp DVM&quot; 
+#&gt;  [9] &quot;Sylas Wisoky DVM&quot;         &quot;Gunda Considine&quot;</code></pre>
 </div>
 <div id="phone-number" class="section level3">
 <h3>phone number</h3>
 <pre class="r"><code>ch_phone_number()
-#&gt; [1] &quot;694.142.2479x8330&quot;</code></pre>
+#&gt; [1] &quot;1-297-334-6249x463&quot;</code></pre>
 <pre class="r"><code>ch_phone_number(10)
-#&gt;  [1] &quot;729.696.4235x432&quot;    &quot;(410)948-5947x078&quot;   &quot;558.791.9758&quot;       
-#&gt;  [4] &quot;(019)599-4783x5009&quot;  &quot;204-331-9183&quot;        &quot;(478)845-1133&quot;      
-#&gt;  [7] &quot;631.713.7642&quot;        &quot;1-647-843-4062x1199&quot; &quot;705-007-7353x9342&quot;  
-#&gt; [10] &quot;(178)325-2557x56382&quot;</code></pre>
+#&gt;  [1] &quot;185.236.9339x198&quot;   &quot;135-587-2706x72695&quot; &quot;432.261.1842x958&quot;  
+#&gt;  [4] &quot;1-510-898-4317&quot;     &quot;637-657-5120x1180&quot;  &quot;970-413-5231x04013&quot;
+#&gt;  [7] &quot;+99(3)9365555968&quot;   &quot;858.518.8972&quot;       &quot;449-824-5320&quot;      
+#&gt; [10] &quot;809-959-3228x22460&quot;</code></pre>
 </div>
 <div id="job" class="section level3">
 <h3>job</h3>
 <pre class="r"><code>ch_job()
-#&gt; [1] &quot;Nurse, children&#39;s&quot;</code></pre>
+#&gt; [1] &quot;Engineer, chemical&quot;</code></pre>
 <pre class="r"><code>ch_job(10)
-#&gt;  [1] &quot;Commercial art gallery manager&quot;         
-#&gt;  [2] &quot;IT technical support officer&quot;           
-#&gt;  [3] &quot;Adult guidance worker&quot;                  
-#&gt;  [4] &quot;Librarian, public&quot;                      
-#&gt;  [5] &quot;Diplomatic Services operational officer&quot;
-#&gt;  [6] &quot;Control and instrumentation engineer&quot;   
-#&gt;  [7] &quot;Engineer, manufacturing&quot;                
-#&gt;  [8] &quot;Chartered certified accountant&quot;         
-#&gt;  [9] &quot;Administrator, Civil Service&quot;           
-#&gt; [10] &quot;Designer, industrial/product&quot;</code></pre>
+#&gt;  [1] &quot;Multimedia specialist&quot;         &quot;Marketing executive&quot;          
+#&gt;  [3] &quot;TEFL teacher&quot;                  &quot;Clinical molecular geneticist&quot;
+#&gt;  [5] &quot;Surveyor, mining&quot;              &quot;Engineer, water&quot;              
+#&gt;  [7] &quot;Warden/ranger&quot;                 &quot;Theatre manager&quot;              
+#&gt;  [9] &quot;Geochemist&quot;                    &quot;Programmer, systems&quot;</code></pre>
 </div>
 <div id="credit-cards" class="section level3">
 <h3>credit cards</h3>
 <pre class="r"><code>ch_credit_card_provider()
-#&gt; [1] &quot;Diners Club / Carte Blanche&quot;
+#&gt; [1] &quot;JCB 16 digit&quot;
 ch_credit_card_provider(n = 4)
-#&gt; [1] &quot;JCB 16 digit&quot;     &quot;Voyager&quot;          &quot;American Express&quot; &quot;JCB 16 digit&quot;</code></pre>
+#&gt; [1] &quot;Voyager&quot;       &quot;Voyager&quot;       &quot;Maestro&quot;       &quot;VISA 13 digit&quot;</code></pre>
 <pre class="r"><code>ch_credit_card_number()
-#&gt; [1] &quot;53179035548247676&quot;
+#&gt; [1] &quot;6011898962312431998&quot;
 ch_credit_card_number(n = 10)
-#&gt;  [1] &quot;502059506159116&quot;     &quot;3088615926186023845&quot; &quot;3002877866616823&quot;   
-#&gt;  [4] &quot;4383703635318773&quot;    &quot;180088446044038768&quot;  &quot;869901859495367367&quot; 
-#&gt;  [7] &quot;675928121803937&quot;     &quot;3096439026343250946&quot; &quot;4850304535923&quot;      
-#&gt; [10] &quot;52642312402226446&quot;</code></pre>
+#&gt;  [1] &quot;4838754316845&quot;       &quot;4506598649917&quot;       &quot;54321906931129530&quot;  
+#&gt;  [4] &quot;3736315271564585&quot;    &quot;3007277329293366&quot;    &quot;6011477512197019225&quot;
+#&gt;  [7] &quot;869970814530301513&quot;  &quot;3088373617931330880&quot; &quot;3010620719899192&quot;   
+#&gt; [10] &quot;4082160534002&quot;</code></pre>
 <pre class="r"><code>ch_credit_card_security_code()
-#&gt; [1] &quot;417&quot;
+#&gt; [1] &quot;254&quot;
 ch_credit_card_security_code(10)
-#&gt;  [1] &quot;071&quot;  &quot;824&quot;  &quot;5435&quot; &quot;775&quot;  &quot;2961&quot; &quot;976&quot;  &quot;2281&quot; &quot;363&quot;  &quot;188&quot;  &quot;732&quot;</code></pre>
+#&gt;  [1] &quot;769&quot;  &quot;252&quot;  &quot;839&quot;  &quot;3837&quot; &quot;599&quot;  &quot;717&quot;  &quot;180&quot;  &quot;403&quot;  &quot;241&quot;  &quot;057&quot;</code></pre>
 </div>
 </div>
 <div id="missing-data" class="section level2">
@@ -1702,21 +1689,19 @@ the input class.</p>
 <pre class="r"><code>testVector &lt;- MissingDataProvider$new()</code></pre>
 <div id="character-strings" class="section level3">
 <h3>character strings</h3>
-<pre class="r"><code>testVector$make_missing(x = ch_generate()$name) 
-#&gt;  [1] NA                   &quot;Marge Bogan&quot;        &quot;Ester Hilll&quot;       
-#&gt;  [4] &quot;Rome Barton&quot;        &quot;Mervyn Huels&quot;       NA                  
-#&gt;  [7] NA                   &quot;Sonya Pollich&quot;      &quot;Mr. Bernard Raynor&quot;
-#&gt; [10] &quot;Dr. Aniya Waters&quot;</code></pre>
+<pre class="r"><code>testVector$make_missing(x = ch_generate()$name)
+#&gt;  [1] &quot;Alma Hickle&quot; NA            NA            NA            NA           
+#&gt;  [6] NA            NA            NA            NA            NA</code></pre>
 </div>
 <div id="numeric-data" class="section level3">
 <h3>numeric data</h3>
-<pre class="r"><code>testVector$make_missing(x = ch_integer(10)) 
-#&gt;  [1] NA NA NA NA NA NA NA NA NA NA</code></pre>
+<pre class="r"><code>testVector$make_missing(x = ch_integer(10))
+#&gt;  [1]  NA  NA  NA  NA 658  NA  NA 413  NA  NA</code></pre>
 </div>
 <div id="logicals" class="section level3">
 <h3>logicals</h3>
 <pre class="r"><code>set.seed(123)
-testVector$make_missing(x = sample(c(TRUE, FALSE), 10, replace = TRUE)) 
+testVector$make_missing(x = sample(c(TRUE, FALSE), 10, replace = TRUE))
 #&gt;  [1]  TRUE    NA    NA FALSE  TRUE    NA FALSE FALSE    NA  TRUE</code></pre>
 </div>
 </div>

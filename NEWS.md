@@ -1,3 +1,15 @@
+charlatan 0.5.1
+===============
+
+### NEW FEATURES
+* added a SSN number generation process for en_US, addition by Neal Furtz (@nfultz)
+* Changed maintainer of the package to RMHogervorst
+
+### MINOR IMPROVEMENTS
+* Fixed a failing test on r-devel
+
+
+
 charlatan 0.5.0
 ===============
 

@@ -5,10 +5,13 @@ Description: Make fake data, supporting addresses, person names, dates,
     times, colors, coordinates, currencies, digital object identifiers
     ('DOIs'), jobs, phone numbers, 'DNA' sequences, doubles and integers
     from distributions and within a range.
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(
-      person("Scott", "Chamberlain", role = c("aut", "cre"),
-        email = "myrmecocystus+r@gmail.com", 
+      person("Roel M.", "Hogervorst", 
+            email ="hogervorst.rm@gmail.com", 
+            role = c("cre", "aut"), 
+            comment = c(ORCID = "0000-0001-7509-0328")),
+      person("Scott", "Chamberlain", role = c("aut"),
         comment = c(ORCID = "0000-0003-1444-9135")),
       person("Kyle", "Voytovich", role = "aut"),
       person("Martin", "Pedersen", role = "ctb"),
@@ -30,7 +33,7 @@ Language: en-US
 VignetteBuilder: knitr
 Imports: R6 (>= 2.2.0), tibble (>= 1.2), whisker
 Suggests: testthat, knitr, rmarkdown, ipaddress, stringi
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2
 Collate: 'address-provider-en_GB.R' 'address-provider-en_NZ.R'
         'address-provider-en_US.R' 'address-provider-nl_NL.R'
         'base-provider.R' 'datetime-provider.R' 'address-provider.R'
@@ -79,11 +82,13 @@ Collate: 'address-provider-en_GB.R' 'address-provider-en_NZ.R'
         'person-provider-no_NO.R' 'person-provider-pl_PL.R'
         'person-provider.R' 'phone-number-provider-all.R'
         'phone_number.R' 'phonenumbers-provider.R'
-        'sequence-provider.R' 'sequences.R' 'taxonomy-provider.R'
-        'taxonomy.R' 'useragent-provider.R' 'zzz.R'
+        'sequence-provider.R' 'sequences.R' 'ssn-provider.R' 'ssn.R'
+        'taxonomy-provider.R' 'taxonomy.R' 'useragent-provider.R'
+        'zzz.R'
 NeedsCompilation: no
-Packaged: 2022-08-18 04:30:32 UTC; sckott
-Author: Scott Chamberlain [aut, cre] (<https://orcid.org/0000-0003-1444-9135>),
+Packaged: 2023-09-12 20:08:26 UTC; roelhogervorst
+Author: Roel M. Hogervorst [cre, aut] (<https://orcid.org/0000-0001-7509-0328>),
+  Scott Chamberlain [aut] (<https://orcid.org/0000-0003-1444-9135>),
   Kyle Voytovich [aut],
   Martin Pedersen [ctb],
   Brooke Anderson [rev] (Brooke Anderson reviewed the package for
@@ -91,6 +96,6 @@ Author: Scott Chamberlain [aut, cre] (<https://orcid.org/0000-0003-1444-9135>),
   Tristan Mahr [rev] (Tristan Mahr reviewed the package for rOpenSci, see
     https://github.com/ropensci/onboarding/issues/94),
   rOpenSci [fnd] (https://ropensci.org)
-Maintainer: Scott Chamberlain <myrmecocystus+r@gmail.com>
+Maintainer: Roel M. Hogervorst <hogervorst.rm@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-08-18 12:00:09 UTC
+Date/Publication: 2023-09-13 13:40:02 UTC

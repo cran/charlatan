@@ -11,7 +11,7 @@
 
 <meta name="author" content="Scott Chamberlain" />
 
-<meta name="date" content="2022-08-17" />
+<meta name="date" content="2023-09-12" />
 
 <title>Contributing to charlatan</title>
 
@@ -1385,23 +1385,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -1505,7 +1499,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Contributing to charlatan</h1>
 <h4 class="author">Scott Chamberlain</h4>
-<h4 class="date">2022-08-17</h4>
+<h4 class="date">2023-09-12</h4>
 
 </div>
 
@@ -1548,14 +1542,17 @@ but here we’ll call it <code>MyBaseProvider</code> to avoid
 confusion.</p>
 <pre class="r"><code>library(R6)
 MyBaseProvider &lt;- R6::R6Class(
-  &#39;MyBaseProvider&#39;,
+  &quot;MyBaseProvider&quot;,
   public = list(
     random_element = function(x) {
-      if (length(x) == 0) return(&#39;&#39;)
-      if (inherits(x, &quot;character&quot;)) if (!any(nzchar(x))) return(&#39;&#39;)
+      if (length(x) == 0) {
+        return(&quot;&quot;)
+      }
+      if (inherits(x, &quot;character&quot;)) if (!any(nzchar(x))) {
+        return(&quot;&quot;)
+      }
       x[sample.int(n = length(x), size = 1)]
     },
-
     random_int = function(min = 0, max = 9999, size = 1) {
       stopifnot(max &gt;= min)
       num &lt;- max - min + 1
@@ -1567,7 +1564,7 @@ MyBaseProvider &lt;- R6::R6Class(
 <h3>Providers without locale support</h3>
 <p>If you don’t need to handle locales it becomes simpler:</p>
 <pre class="r"><code>FooBar &lt;- R6::R6Class(
-  &#39;FooBar&#39;,
+  &quot;FooBar&quot;,
   inherit = charlatan::BaseProvider,
   public = list(
     integer = function(n = 1, min = 1, max = 1000) {
@@ -1625,18 +1622,16 @@ file &lt;- system.file(&quot;examples&quot;, &quot;address-provider-en_US.R&quot
 source(file)
 MyAddressProvider &lt;- R6::R6Class(
   inherit = MyBaseProvider,
-  &#39;MyAddressProvider&#39;,
+  &quot;MyAddressProvider&quot;,
   lock_objects = FALSE,
   public = list(
     locale = NULL,
     city_suffixes = NULL,
-
     initialize = function() {
-      self$locale &lt;- &#39;en_us&#39;
+      self$locale &lt;- &quot;en_us&quot;
       self$city_suffixes &lt;-
         eval(parse(text = paste0(&quot;city_suffixes_&quot;, self$locale)))
     },
-
     city_suffix = function() {
       super$random_element(self$city_suffixes)
     }

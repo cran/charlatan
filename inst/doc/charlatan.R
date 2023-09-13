@@ -37,7 +37,7 @@ ch_color_name(locale = "uk_UA", n = 3)
 ch_generate()
 
 ## -----------------------------------------------------------------------------
-ch_generate('job', 'phone_number', n = 30)
+ch_generate("job", "phone_number", n = 30)
 
 ## -----------------------------------------------------------------------------
 ch_name()
@@ -73,14 +73,14 @@ ch_credit_card_security_code(10)
 testVector <- MissingDataProvider$new()
 
 ## -----------------------------------------------------------------------------
-testVector$make_missing(x = ch_generate()$name) 
+testVector$make_missing(x = ch_generate()$name)
 
 ## -----------------------------------------------------------------------------
-testVector$make_missing(x = ch_integer(10)) 
+testVector$make_missing(x = ch_integer(10))
 
 ## -----------------------------------------------------------------------------
 set.seed(123)
-testVector$make_missing(x = sample(c(TRUE, FALSE), 10, replace = TRUE)) 
+testVector$make_missing(x = sample(c(TRUE, FALSE), 10, replace = TRUE))
 
 ## -----------------------------------------------------------------------------
 ch_name(50, messy = TRUE)
