@@ -1,11 +1,12 @@
 Package: charlatan
 Type: Package
 Title: Make Fake Data
-Description: Make fake data, supporting addresses, person names, dates,
+Description: Make fake data that looks realistic, supporting addresses, 
+    person names, dates,
     times, colors, coordinates, currencies, digital object identifiers
     ('DOIs'), jobs, phone numbers, 'DNA' sequences, doubles and integers
     from distributions and within a range.
-Version: 0.5.1
+Version: 0.6.1
 Authors@R: c(
       person("Roel M.", "Hogervorst", 
             email ="hogervorst.rm@gmail.com", 
@@ -24,43 +25,46 @@ Authors@R: c(
       person("rOpenSci", role = "fnd", comment = "https://ropensci.org")
     )
 License: MIT + file LICENSE
-URL: https://docs.ropensci.org/charlatan/ (website)
-        https://github.com/ropensci/charlatan (devel)
+URL: https://docs.ropensci.org/charlatan/,
+        https://github.com/ropensci/charlatan
 BugReports: https://github.com/ropensci/charlatan/issues
 LazyData: true
 Encoding: UTF-8
 Language: en-US
 VignetteBuilder: knitr
 Imports: R6 (>= 2.2.0), tibble (>= 1.2), whisker
-Suggests: testthat, knitr, rmarkdown, ipaddress, stringi
-RoxygenNote: 7.2.2
+Suggests: testthat, knitr, rmarkdown, ipaddress, stringi, spelling
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3
+Depends: R (>= 2.10)
 Collate: 'address-provider-en_GB.R' 'address-provider-en_NZ.R'
         'address-provider-en_US.R' 'address-provider-nl_NL.R'
-        'base-provider.R' 'datetime-provider.R' 'address-provider.R'
-        'available_locales.R' 'charlatan-package.R'
-        'charlatan_settings.R' 'color-provider-en_US.R'
-        'color-provider-uk_UA.R' 'color-provider.R' 'color.R'
-        'company-provider-bg_BG.R' 'company-provider-cs_CZ.R'
-        'company-provider-de_DE.R' 'company-provider-en_US.R'
-        'company-provider-es_MX.R' 'company-provider-fa_IR.R'
-        'company-provider-fr_FR.R' 'company-provider-hr_HR.R'
-        'company-provider-it_IT.R' 'company-provider.R' 'company.R'
-        'coordinate-provider.R' 'coordinates.R'
-        'credit_card-provider.R' 'credit_card.R' 'currency-provider.R'
-        'currency.R' 'date_time.R' 'doi-provider.R' 'doi.R'
-        'element-provider.R' 'elements.R' 'file-provider.R'
-        'fraudster.R' 'generate.R' 'globals.R'
+        'datetime-provider.R' 'address-provider.R'
+        'available_locales.R' 'available_providers.R' 'base-provider.R'
+        'charlatan-package.R' 'charlatan_settings.R'
+        'color-provider-en_US.R' 'color-provider-uk_UA.R'
+        'color-provider.R' 'color.R' 'company-provider-bg_BG.R'
+        'company-provider-cs_CZ.R' 'company-provider-de_DE.R'
+        'company-provider-en_US.R' 'company-provider-es_MX.R'
+        'company-provider-fa_IR.R' 'company-provider-fr_FR.R'
+        'company-provider-hr_HR.R' 'company-provider-it_IT.R'
+        'company-provider.R' 'company.R' 'coordinate-provider.R'
+        'coordinates.R' 'credit_card-provider.R' 'credit_card.R'
+        'currency-provider.R' 'currency.R' 'date_time.R'
+        'doi-provider.R' 'doi.R' 'element-provider.R' 'elements.R'
+        'file-provider.R' 'fraudster.R' 'generate.R' 'globals.R'
         'internet-provider-bg_BG.R' 'internet-provider-cs_CZ.R'
         'internet-provider-de_DE.R' 'internet-provider-en_AU.R'
-        'internet-provider-en_NZ.R' 'internet-provider-fa_IR.R'
-        'internet-provider-fr_FR.R' 'internet-provider-hr_HR.R'
-        'internet-provider.R' 'job.R' 'jobs-provider-da_DK.R'
+        'internet-provider-en_NZ.R' 'internet-provider-en_US.R'
+        'internet-provider-fa_IR.R' 'internet-provider-fr_FR.R'
+        'internet-provider-hr_HR.R' 'internet-provider.R'
+        'isbn-provider.R' 'job.R' 'jobs-provider-da_DK.R'
         'jobs-provider-en_US.R' 'jobs-provider-fa_IR.R'
         'jobs-provider-fi_FI.R' 'jobs-provider-fr_CH.R'
         'jobs-provider-fr_FR.R' 'jobs-provider-hr_HR.R'
         'jobs-provider-nl_NL.R' 'jobs-provider-pl_PL.R'
         'jobs-provider-ru_RU.R' 'jobs-provider-uk_UA.R'
-        'jobs-provider-zh_TW.R' 'jobs-provider.R'
+        'jobs-provider-zh_TW.R' 'jobs-provider.R' 'languages.R'
         'lorem-provider-ar_AA.R' 'lorem-provider-el_GR.R'
         'lorem-provider-en_US.R' 'lorem-provider-he_IL.R'
         'lorem-provider-ja_JP.R' 'lorem-provider-la.R'
@@ -80,13 +84,16 @@ Collate: 'address-provider-en_GB.R' 'address-provider-en_NZ.R'
         'person-provider-lt_LT.R' 'person-provider-lv_LV.R'
         'person-provider-ne_NP.R' 'person-provider-nl_NL.R'
         'person-provider-no_NO.R' 'person-provider-pl_PL.R'
-        'person-provider.R' 'phone-number-provider-all.R'
-        'phone_number.R' 'phonenumbers-provider.R'
-        'sequence-provider.R' 'sequences.R' 'ssn-provider.R' 'ssn.R'
-        'taxonomy-provider.R' 'taxonomy.R' 'useragent-provider.R'
-        'zzz.R'
+        'person-provider.R' 'phone_number.R'
+        'phonenumber-provider-en.R' 'phonenumber-provider-es.R'
+        'phonenumber-provider-fr.R' 'phonenumber-provider-nl.R'
+        'phonenumber-provider-rest.R' 'phonenumber-provider.R'
+        'sequence-provider.R' 'sequences.R' 'ssn-provider-all.R'
+        'ssn-provider.R' 'ssn.R' 'taxonomy-provider-all.R'
+        'taxonomy-provider.R' 'taxonomy.R' 'useragent-provider-all.R'
+        'useragent-provider.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2023-09-12 20:08:26 UTC; roelhogervorst
+Packaged: 2024-10-17 04:46:43 UTC; roel
 Author: Roel M. Hogervorst [cre, aut] (<https://orcid.org/0000-0001-7509-0328>),
   Scott Chamberlain [aut] (<https://orcid.org/0000-0003-1444-9135>),
   Kyle Voytovich [aut],
@@ -98,4 +105,4 @@ Author: Roel M. Hogervorst [cre, aut] (<https://orcid.org/0000-0001-7509-0328>),
   rOpenSci [fnd] (https://ropensci.org)
 Maintainer: Roel M. Hogervorst <hogervorst.rm@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-09-13 13:40:02 UTC
+Date/Publication: 2024-10-17 05:20:02 UTC
